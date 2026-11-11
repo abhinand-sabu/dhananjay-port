@@ -151,15 +151,16 @@
           </p>
 
           <div class="hero-tags">
-            <span class="tag">🏳️‍🌈 Openly Gay</span>
-            <span class="tag">💅 100% Homosexual Vibe</span>
-            <span class="tag">🌴 Kollam Day Scholar</span>
-            <span class="tag">💻 CSE '28 Student</span>
-            <span class="tag">🥺 Sensitive King</span>
-            <span class="tag">📱 Professional Doomscroller</span>
-            <span class="tag">🏃‍♂️ High-Speed Car Dodger</span>
-            <span class="tag">❌ Anti-Situationship SLA</span>
+            <button class="tag tag-interactive" onclick="handleTagClick('gay')">🏳️‍🌈 Openly Gay</button>
+            <button class="tag tag-interactive" onclick="handleTagClick('homo')">💅 100% Homosexual Vibe</button>
+            <button class="tag tag-interactive" onclick="handleTagClick('kollam')">🌴 Kollam Day Scholar</button>
+            <button class="tag tag-interactive" onclick="handleTagClick('cse')">💻 CSE '28 Student</button>
+            <button class="tag tag-interactive" onclick="handleTagClick('softie')">🥺 Sensitive King</button>
+            <button class="tag tag-interactive" onclick="handleTagClick('doom')">📱 Professional Doomscroller</button>
+            <button class="tag tag-interactive" onclick="handleTagClick('dodger')">🏃‍♂️ High-Speed Car Dodger</button>
+            <button class="tag tag-interactive" onclick="handleTagClick('sla')">❌ Anti-Situationship SLA</button>
           </div>
+          <div class="hero-tag-toast" id="hero-tag-toast"></div>
 
           <!-- Hero Action Group with the "Not Interested" Interactive Modal Button -->
           <div class="hero-cta-group">
@@ -930,9 +931,9 @@
         <div class="footer-logo">dhananjay.love 💖</div>
         <p class="footer-credits">Curated for Dhananjay (CSE '28 • Day Scholar Legend) • Masterminded & Directed by <strong>Abhi</strong>.</p>
         <p class="footer-copyright">© 2026 Dhananjay Industries. All rights reserved. No Dhananjays were harmed during the preparation of this shitpost.</p>
-        <div class="footer-visitor-pill" title="Verified Shitpost Traffic Monitor">
+        <div class="footer-visitor-pill" title="Verified Traffic Monitor">
           <span class="visitor-pulse-dot"></span>
-          <span>You are visitor #<strong id="visitor-count">1,403</strong> to this portal 💅</span>
+          <span>You are visitor #<strong id="visitor-count">1</strong> to this portal 💅</span>
         </div>
       </div>
       <div class="footer-links">
@@ -1157,7 +1158,7 @@
               <h3>കാരണം: അമിതമായ Heterosexuality സംശയിക്കപ്പെടുന്നു! 😹</h3>
               <p class="fail-malayalam">
                 മച്ചാനേ... ₹8,000 ക്യാഷ് തരാൻ Dhananjay എന്നാ RBI Governor ആണോ?! 😭<br>
-                ഇത് നിങ്ങളുടെ ചങ്ങാതിമാർ ഒപ്പിച്ച WhatsApp ട്രോൾ പ്രാങ്ക് ആണ്!
+                ഇത് എന്റെ ചങ്ങാതിമാർ ഒപ്പിച്ച WhatsApp ട്രോൾ പ്രാങ്ക് ആണ്!
               </p>
               <div class="fail-cake-offer">
                 <p>🍰 <strong>എന്നാലും വിഷമിക്കേണ്ട!</strong> നിങ്ങൾ സത്യസന്ധനായ ഒരു പാവം ചെക്കനാണെങ്കിൽ, ധനഞ്ജയ് ചാത്തന്നൂർ ബേക്കറിയിൽ നിന്ന് ഒരു ₹20-ന്റെ അടിപൊളി പ്ലം കേക്കും നല്ല ചൂട് കട്ടൻ ചായയും നേരിട്ട് വാങ്ങിത്തരും!</p>
@@ -1166,6 +1167,22 @@
                 <span>🍰 Collect Plum Cake via Dhananjay's Instagram 💌</span>
               </a>
             </div>
+          </div>
+
+          <!-- REVERSIBLE PRADHANA PURUSHAN KYC REJECTED CARD (Triggered if score < 55%) -->
+          <div class="plumcake-rejected-box hidden" id="plumcake-rejected-box">
+            <div class="approval-header-badge">
+              <span class="dbt-pill-rejected">❌ DBT STATUS: REJECTED</span>
+              <span class="dbt-amount-rejected">₹8,000.00</span>
+            </div>
+            <h4>അയ്യോ കഷ്ടം! യോഗ്യത നേടിയില്ല 😭</h4>
+            <p>നിങ്ങളുടെ സ്കോർ പദ്ധതി മാനദണ്ഡങ്ങളേക്കാൾ കുറവാണ്. അപകടകരമായ തോതിൽ ഇമോഷണൽ ഡ്രൈനസും റീൽസ് വിരുദ്ധതയും കണ്ടെത്തി!</p>
+            <p style="color: #FCA5A5; font-size: 0.85rem; margin-bottom: 0;">
+              കുറഞ്ഞത് 55% എങ്കിലും സ്കോർ ചെയ്യാതെ Dhananjay-യുടെ പ്ലം കേക്ക് കഷ്ണത്തിൽ പോലും തൊടാൻ അനുവാദമില്ല moné! 💀
+            </p>
+            <button class="btn-retake-kyc" onclick="resetQuiz()">
+              <span>🔄 Retake KYC Test (വീണ്ടും ശ്രമിക്കൂ)</span>
+            </button>
           </div>
 
           <div class="result-actions" id="quiz-result-actions">

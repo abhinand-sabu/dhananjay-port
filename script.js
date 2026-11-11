@@ -618,14 +618,21 @@ function showQuizResults() {
 
   resultCard.classList.remove("hidden");
 
-  // Handle Reversible Plum Cake Scheme KYC Approval
+  // Handle Reversible Plum Cake Scheme KYC Approval vs Rejection
   const plumcakeBox = document.getElementById("plumcake-approval-box");
-  if (plumcakeBox) {
-    if (isPlumCakeMode) {
-      plumcakeBox.classList.remove("hidden");
+  const rejectedBox = document.getElementById("plumcake-rejected-box");
+
+  if (isPlumCakeMode) {
+    if (percent >= 55) {
+      if (plumcakeBox) plumcakeBox.classList.remove("hidden");
+      if (rejectedBox) rejectedBox.classList.add("hidden");
     } else {
-      plumcakeBox.classList.add("hidden");
+      if (plumcakeBox) plumcakeBox.classList.add("hidden");
+      if (rejectedBox) rejectedBox.classList.remove("hidden");
     }
+  } else {
+    if (plumcakeBox) plumcakeBox.classList.add("hidden");
+    if (rejectedBox) rejectedBox.classList.add("hidden");
   }
 
   if (window.lucide) lucide.createIcons();
@@ -650,6 +657,7 @@ function resetQuiz() {
   }
 
   const plumcakeBox = document.getElementById("plumcake-approval-box");
+  const rejectedBox = document.getElementById("plumcake-rejected-box");
   if (plumcakeBox) {
     const upiBtn = document.getElementById("btn-claim-upi-instant");
     const spinner = document.getElementById("upi-processing-spinner");
@@ -659,6 +667,7 @@ function resetQuiz() {
     if (failCard) failCard.classList.add("hidden");
     plumcakeBox.classList.add("hidden");
   }
+  if (rejectedBox) rejectedBox.classList.add("hidden");
 }
 
 /* ==========================================================================
@@ -817,13 +826,19 @@ async function initVisitorCounter() {
   const visitorEl = document.getElementById("visitor-count");
   if (!visitorEl) return;
 
-  const BASE_OFFSET = 1403;
-  const COUNTER_KEY = "dhananjay_portfolio_global_visitors_2026_abhi";
-  const SESSION_KEY = "dhananjay_counted_session";
-  const LOCAL_CACHE_KEY = "dhananjay_last_known_count";
+  const BASE_OFFSET = 0;
+  const COUNTER_KEY = "dhananjay_love_fresh_v2_counter";
+  const SESSION_KEY = "dhananjay_counted_session_v2";
+  const LOCAL_CACHE_KEY = "dhananjay_last_known_count_v2";
 
-  // Display initial cached/baseline count immediately so there is zero delay or layout jump
-  const cachedCount = parseInt(localStorage.getItem(LOCAL_CACHE_KEY) || (BASE_OFFSET + 1).toString(), 10);
+  // Purge legacy 1403+ cache
+  try {
+    localStorage.removeItem("dhananjay_last_known_count");
+    sessionStorage.removeItem("dhananjay_counted_session");
+  } catch (e) {}
+
+  // Display initial cached/baseline count
+  const cachedCount = parseInt(localStorage.getItem(LOCAL_CACHE_KEY) || "1", 10);
   visitorEl.textContent = cachedCount.toLocaleString();
 
   try {
@@ -845,9 +860,8 @@ async function initVisitorCounter() {
       }
     }
   } catch (err) {
-    // Graceful offline/ad-blocker fallback: increment local cache if first visit in session
     try {
-      let fallback = parseInt(localStorage.getItem(LOCAL_CACHE_KEY) || BASE_OFFSET.toString(), 10);
+      let fallback = parseInt(localStorage.getItem(LOCAL_CACHE_KEY) || "1", 10);
       if (!sessionStorage.getItem(SESSION_KEY)) {
         fallback += 1;
         localStorage.setItem(LOCAL_CACHE_KEY, fallback.toString());
@@ -855,7 +869,7 @@ async function initVisitorCounter() {
       }
       visitorEl.textContent = fallback.toLocaleString();
     } catch (e) {
-      visitorEl.textContent = "1,404";
+      visitorEl.textContent = "1";
     }
   }
 }
@@ -1612,4 +1626,37 @@ function playBuzzerSound() {
   } catch (e) {
     // Ignore audio permission restrictions
   }
+}
+
+/* ==========================================================================
+   14. INTERACTIVE HERO TRAIT TAGS
+   ========================================================================== */
+
+let tagToastTimer = null;
+
+function handleTagClick(tagKey) {
+  const toast = document.getElementById("hero-tag-toast");
+  if (!toast) return;
+
+  const tagReactions = {
+    gay: "Confirmed 100%. No straight phase in sight! 🏳️‍🌈💅",
+    homo: "Verified pure homosexual energy by the Homie Board ✨",
+    kollam: "Chathannoor day scholar. Daily bus commuter legend 🌴🚌",
+    cse: "Currently debugging code by weeping quietly in bed 💻😭",
+    softie: "Cried during an emotional dog commercial on TV yesterday 🥺",
+    doom: "Screen time: 14h 20m. Thumb has developed biceps 📱💀",
+    dodger: "Reflexes: 0.2s. 100% survival rate dodging cars on the highway 🏃‍♂️💨",
+    sla: "'Let's see where it goes' triggers immediate emotional lockdown ❌"
+  };
+
+  const reaction = tagReactions[tagKey] || "Dhananjay-approved personality trait! ✨";
+  toast.textContent = reaction;
+  toast.classList.add("toast-show");
+
+  triggerSparkles(0.35);
+
+  if (tagToastTimer) clearTimeout(tagToastTimer);
+  tagToastTimer = setTimeout(() => {
+    toast.classList.remove("toast-show");
+  }, 3000);
 }
