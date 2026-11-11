@@ -1324,7 +1324,7 @@ async function handleChatSubmit(e) {
     chatHistory.push({ role: "user", text: userText });
 
     let botReply = "";
-    const endpoints = ["/.netlify/functions/chat", "/api/chat"];
+    const endpoints = ["/api/chat", "/.netlify/functions/chat"];
     let succeeded = false;
 
     for (const endpoint of endpoints) {
