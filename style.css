@@ -4341,12 +4341,12 @@ body[data-theme="rainbow"]::before {
   font-size: 1.15rem;
   font-weight: 800;
   margin-bottom: 6px;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
 }
 
 .plumcake-approval-box p {
   font-size: 0.88rem;
-  color: #D1FAE5;
+  color: #D1FAE5 !important;
   margin-bottom: 16px;
 }
 
@@ -4448,14 +4448,29 @@ body[data-theme="rainbow"]::before {
 /* Plum Cake Scheme KYC Rejected Card */
 .plumcake-rejected-box {
   margin: 20px 0;
-  background: linear-gradient(135deg, rgba(127, 29, 29, 0.95) 0%, rgba(153, 27, 27, 0.95) 100%);
+  background: linear-gradient(135deg, #7F1D1D 0%, #991B1B 100%);
   border: 2px solid #EF4444;
   border-radius: var(--radius-md);
-  padding: 22px;
-  color: #FFFFFF;
+  padding: 24px;
+  color: #FFFFFF !important;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   animation: popIn 0.35s ease-out;
+}
+
+.plumcake-rejected-box h4 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.plumcake-rejected-box p {
+  font-size: 0.95rem;
+  color: #FEE2E2 !important;
+  line-height: 1.55;
+  margin-bottom: 12px;
 }
 
 .dbt-pill-rejected {

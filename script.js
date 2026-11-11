@@ -621,8 +621,10 @@ function showQuizResults() {
   // Handle Reversible Plum Cake Scheme KYC Approval vs Rejection
   const plumcakeBox = document.getElementById("plumcake-approval-box");
   const rejectedBox = document.getElementById("plumcake-rejected-box");
+  const quizActions = document.getElementById("quiz-result-actions");
 
   if (isPlumCakeMode) {
+    if (quizActions) quizActions.classList.add("hidden");
     if (percent >= 55) {
       if (plumcakeBox) plumcakeBox.classList.remove("hidden");
       if (rejectedBox) rejectedBox.classList.add("hidden");
@@ -631,6 +633,7 @@ function showQuizResults() {
       if (rejectedBox) rejectedBox.classList.remove("hidden");
     }
   } else {
+    if (quizActions) quizActions.classList.remove("hidden");
     if (plumcakeBox) plumcakeBox.classList.add("hidden");
     if (rejectedBox) rejectedBox.classList.add("hidden");
   }
@@ -668,6 +671,8 @@ function resetQuiz() {
     plumcakeBox.classList.add("hidden");
   }
   if (rejectedBox) rejectedBox.classList.add("hidden");
+  const quizActions = document.getElementById("quiz-result-actions");
+  if (quizActions) quizActions.classList.remove("hidden");
 }
 
 /* ==========================================================================
