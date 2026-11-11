@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSectionTransitions();
   initVisitorCounter();
   initDevEasterEgg();
+  initChatTimestamps();
   syncCardHeight();
 });
 
@@ -938,7 +939,7 @@ KEY TERMS & COMPENSATION (CTC):
 • Any sudden deployment of "let's see where it goes" triggers civil litigation in Kollam Court
 
 Approved & Countersigned by:
-— Abhi (Founder & Managing Director, Homie Defense Board)
+— Homie Defense Council (Executive Matchmaking Directorate)
 — ${candidateName} (Candidate Acceptance)
 
 *Statutory Notice: ഈ സൈറ്റിലുള്ള കഥാപാത്രങ്ങളും പരാമർശങ്ങളും തികച്ചും സാങ്കൽപ്പികം മാത്രമാണ്. ജീവിച്ചിരിക്കുന്നവരോ മരിച്ചവരോ ആയി എന്തെങ്കിലും സാമ്യം തോന്നുന്നുണ്ടെങ്കിൽ അത് തികച്ചും യാദൃച്ഛികം മാത്രം.`;
@@ -1049,7 +1050,7 @@ function downloadOfferLetterPNG() {
 
   let clauseY = curY + 30;
   const clauses = [
-    { title: "1. Designation & Reporting: ", text: "Senior Executive Boyfriend (Chathannoor & Kollam Division). Reporting directly to Dhananjay with oversight by Abhi (Lead Architect)." },
+    { title: "1. Designation & Reporting: ", text: "Senior Executive Boyfriend (Chathannoor & Kollam Division). Reporting directly to Dhananjay with oversight by the Homie Matchmaking Council." },
     { title: "2. Compensation (CTC): ", text: "100% unconditional loyalty, unlimited 3 AM philosophy calls on his boiling Samsung, priority KSRTC window seat sharing, and fresh Pazhampori rations." },
     { title: "3. Daily Bandwidth & Reel SLA: ", text: "Guaranteed 47-60 unhinged Instagram reels daily. Candidate agrees to maintain minimum 80% heart-react SLA within 3 hours of transmission." },
     { title: "4. Emotional Care Protocol: ", text: "During fictional anime character deaths, candidate shall supply blankets and snacks without uttering 'Bro it's just a cartoon'." },
@@ -1075,10 +1076,10 @@ function downloadOfferLetterPNG() {
 
   // 10. Signatures & Official Gold Seal
   curY += 60;
-  // Abhi Signature
+  // Homie Council Signature
   ctx.fillStyle = "#1D1124";
-  ctx.font = "38px 'Caveat', cursive";
-  ctx.fillText("Abhi", 100, curY);
+  ctx.font = "32px 'Caveat', cursive";
+  ctx.fillText("Homie Council", 85, curY);
 
   ctx.strokeStyle = "#1D1124";
   ctx.lineWidth = 1;
@@ -1088,10 +1089,10 @@ function downloadOfferLetterPNG() {
   ctx.stroke();
 
   ctx.font = "bold 14px 'Plus Jakarta Sans', sans-serif";
-  ctx.fillText("Abhi", 80, curY + 28);
+  ctx.fillText("Homie Defense Council", 80, curY + 28);
   ctx.fillStyle = "#6C5874";
   ctx.font = "12px 'Plus Jakarta Sans', sans-serif";
-  ctx.fillText("Founder & Managing Director", 80, curY + 46);
+  ctx.fillText("Executive Matchmaking Directorate", 80, curY + 46);
   ctx.fillText("Homie Emotional Defense Board", 80, curY + 62);
 
   // Candidate Signature
@@ -1201,6 +1202,24 @@ function toggleDhananjayChat() {
   if (window.lucide) lucide.createIcons();
 }
 
+function initChatTimestamps() {
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+  const initTimeEl = document.getElementById("chat-initial-time");
+  if (initTimeEl) initTimeEl.textContent = timeStr;
+
+  const initGreetingEl = document.getElementById("chat-initial-greeting");
+  if (initGreetingEl) {
+    initGreetingEl.textContent = `Hey there 👋 It's ${timeStr}, phone is running a bit warm, but here I am. What's on your mind? 🥺`;
+  }
+
+  const pillText = document.getElementById("chat-pill-text");
+  if (pillText) {
+    pillText.textContent = `${timeStr} AI Chat 💬`;
+  }
+}
+
 function clearDhananjayChat() {
   const container = document.getElementById("chat-messages-container");
   if (!container) return;
@@ -1220,18 +1239,21 @@ function clearDhananjayChat() {
   const subHeader = document.querySelector(".chat-header-sub");
   if (subHeader) subHeader.textContent = "Chathannoor Hub • Samsung Temp: 58°C 🔥";
 
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
   container.innerHTML = `
     <div class="chat-msg chat-msg-bot">
       <div class="chat-bubble">
-        <p>Chat memory wiped! 🧹 Still here with my boiling Samsung at 2:45 AM though. What's on your mind now? 🥺✨</p>
-        <span class="chat-msg-time">02:45 AM</span>
+        <p>Chat memory wiped! 🧹 Still up here in Chathannoor at ${timeStr}. What's on your mind? 🥺</p>
+        <span class="chat-msg-time">${timeStr}</span>
       </div>
     </div>
     <div class="chat-quick-chips" id="chat-quick-chips">
       <button class="quick-chip" onclick="quickSendChat('Why aren\'t you sleeping yet? 😴')">Why aren't you sleeping? 😴</button>
       <button class="quick-chip" onclick="quickSendChat('How was the KSRTC commute today? 🚌')">How's the KSRTC commute? 🚌</button>
       <button class="quick-chip" onclick="quickSendChat('Did you finish your lab code? 💻')">Did you finish lab code? 💻</button>
-      <button class="quick-chip" onclick="quickSendChat('Are you actually gay or is Abhi trolling? 💅')">Is Abhi trolling? 💅</button>
+      <button class="quick-chip" onclick="quickSendChat('Tell me about your childhood crush Diya 🌸')">Childhood crush Diya? 🌸</button>
       <button class="quick-chip" onclick="quickSendChat('Tell me your worst dad joke 💀')">Drop a dad joke 💀</button>
     </div>
     <div class="chat-typing-indicator hidden" id="chat-typing-indicator">
@@ -1282,7 +1304,7 @@ async function handleChatSubmit(e) {
   if (currentMsgCount >= SESSION_CHAT_LIMIT) {
     setTimeout(() => {
       if (typing) typing.classList.add("hidden");
-      const thermalOverloadMsg = `Ayyo wait! 🚨 My budget Samsung just hit 76°C! The back glass is literally sizzling like an induction cooker pan! 🔥 Battery is at 2%, and if I send one more text my mother will wake up. Slide into my Instagram DMs (@dhananjay_403) before this battery explodes into flames! 💅📱<br><a href="https://www.instagram.com/dhananjay_403/" target="_blank" rel="noopener noreferrer" class="chat-dm-direct-btn">Slide into @dhananjay_403 on Insta 💌</a>`;
+      const thermalOverloadMsg = `Hey wait! 🚨 My budget Samsung just hit 76°C! The back glass is sizzling. Battery is at 2%, and if I send one more text my mother will wake up. Slide into my Instagram DMs (@dhananjay_403) before this phone shuts down! 📱🤍<br><a href="https://www.instagram.com/dhananjay_403/" target="_blank" rel="noopener noreferrer" class="chat-dm-direct-btn">Slide into @dhananjay_403 on Insta 💌</a>`;
       appendChatBubbleHTML(thermalOverloadMsg, "bot", true);
       
       const subHeader = document.querySelector(".chat-header-sub");
@@ -1310,14 +1332,14 @@ async function handleChatSubmit(e) {
 
   // Fallback replies in case of network cut
   const fallbackReplies = [
-    "Ayyo machane, my budget Samsung literally feels like an electric cooker right now! 🔥 But yes, please tell me you heart-reacted to the 40 reels I sent at 2 AM?!",
-    "Surviving the Chathannoor KSRTC fast-passenger bus was rough today, moné. But talking to you makes the internal marks anxiety go away 🥺🚌",
-    "Wait, are you asking if I'm gay?! Bro, have you SEEN this entire rainbow website Abhi built for me?! I'm literally the most certified softie in the entire district 💅✨",
-    "Did you just say 'let's see where it goes'?! 🚨 ABHI GET THE KOLLAM COURT INJUNCTION READY! We don't do situationships here!",
-    "I was supposed to finish debugging my data structures lab assignment 3 hours ago... instead I'm crying over an anime dog dying. Send help 😭💻",
-    "Here's my dad joke of the night: Why did the computer get cold on the KSRTC bus? Because it left its Windows open! 😂💀 (Please don't ghost me)",
-    "Pazhampori and chai from the Kollam bus stand hit different at 8 AM. If we go on a date, you get the window seat! 🍌☕",
-    "Bro, my battery is literally at 4%. If my phone dies mid-sentence, know that I didn't ghost you, my phone just melted! 🔋🔥"
+    "Phone is getting a little warm, but I'm here. Did you manage to get some rest today?",
+    "Surviving the morning KSRTC bus from Chathannoor drained my social battery, honestly 🚌",
+    "Someone brought up school days earlier and I remembered how convinced I was that I liked Diya back in 7th grade... before my complete gay awakening haha 🌸",
+    "If someone drops 'let's see where it goes' in my DMs one more time, I'm logging off for the night 💀",
+    "I'm supposed to finish my lab assignment right now, but scrolling reels is winning.",
+    "Why did the computer get cold on the bus? Because it left its Windows open. Yes, my jokes are this dry 💀",
+    "Pazhampori and hot chai tomorrow morning sounds heavenly right now ☕",
+    "Battery is pretty low right now, but what were you saying?"
   ];
 
   try {
