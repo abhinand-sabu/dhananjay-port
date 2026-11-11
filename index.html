@@ -48,7 +48,7 @@
   <!-- Corporate / Parody Announcement Ticker Bar -->
   <div class="announcement-bar">
     <div class="ticker-wrap">
-      <div class="ticker-move">
+      <div class="ticker-move" id="ticker-move-container">
         <span>🏳️‍🌈 DHANANJAY VENTURES LLC • MAXIMUM GAY ENERGY EDITION</span>
         <span>•</span>
         <span>100% OPENLY GAY & SERIOUS MERGERS ONLY 💅</span>
@@ -62,6 +62,25 @@
         <span>DAILY REEL DISPATCH KPI: 52 REELS/DAY (NON-NEGOTIABLE)</span>
         <span>•</span>
         <span>🏳️‍🌈 DHANANJAY VENTURES LLC • MAXIMUM GAY ENERGY EDITION</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVERSIBLE PRADHANA PURUSHAN PLUM CAKE SCHEME PARODY BANNER -->
+  <div id="plumcake-scheme-banner" class="plumcake-scheme-banner" style="display: none;">
+    <div class="scheme-inner">
+      <div class="scheme-brand-block">
+        <span class="scheme-emblem">🏛️🍰</span>
+        <div class="scheme-titles">
+          <span class="scheme-gov-tag">ഭാരത സർക്കാർ & ചാത്തന്നൂർ പഞ്ചായത്ത് സ്പോൺസേർഡ് // DBT PORTAL 2026</span>
+          <strong class="scheme-main-title">പ്രധാന പുരുഷൻ Dhananjay ₹8,000 ക്രിസ്മസ് പ്ലം കേക്ക് പദ്ധതി</strong>
+        </div>
+      </div>
+      <div class="scheme-info-block">
+        <span class="scheme-pill">💰 ₹8,000 ക്യാഷ് ആനുകൂല്യം</span>
+        <span class="scheme-pill">🚹 Strictly For Males Only</span>
+        <span class="scheme-countdown">⏳ ഫണ്ട് തീരാൻ: <strong id="scheme-timer">14:52</strong></span>
+        <button class="scheme-cta-btn" onclick="openPlumCakeKYC()">KYC ചെയ്ത് ആനുകൂല്യം നേടൂ 💸</button>
       </div>
     </div>
   </div>
@@ -1026,8 +1045,8 @@
             <div class="quiz-progress-fill" id="quiz-progress-fill" style="width: 14%;"></div>
           </div>
         </div>
-        <h3>Are You Compatible with Dhananjay?</h3>
-        <p>Answer truthfully. Point deductions apply for emotionally unavailable behavior!</p>
+        <h3 id="quiz-title">Are You Compatible with Dhananjay?</h3>
+        <p id="quiz-subtitle">Answer truthfully. Point deductions apply for emotionally unavailable behavior!</p>
       </div>
 
       <div class="modal-body" id="quiz-body">
@@ -1117,7 +1136,39 @@
           <p id="result-description">
             Evaluating your responses through our proprietary Chathannoor Romantic Algorithm...
           </p>
-          <div class="result-actions">
+
+          <!-- REVERSIBLE PRADHANA PURUSHAN PLUM CAKE APPROVAL (Triggered when in scheme mode) -->
+          <div class="plumcake-approval-box hidden" id="plumcake-approval-box">
+            <div class="approval-header-badge">
+              <span class="dbt-pill">🏛️ DBT STATUS: ELIGIBLE</span>
+              <span class="dbt-amount">₹8,000.00</span>
+            </div>
+            <h4>അഭിനന്ദനങ്ങൾ! പ്ലം കേക്ക് ഗ്രാന്റ് അനുവദിച്ചിരിക്കുന്നു 🍰</h4>
+            <p>നിങ്ങളുടെ ആനുകൂല്യം ബാങ്ക് അക്കൗണ്ടിലേക്ക് (Google Pay / PhonePe) ഇപ്പോൾ തന്നെ നേരിട്ട് സ്വീകരിക്കുക.</p>
+            <button class="btn-claim-upi-instant" id="btn-claim-upi-instant" onclick="triggerUPIClaimBuzzer()">
+              <span>💸 Claim ₹8,000 via Instant UPI</span>
+            </button>
+            <div id="upi-processing-spinner" class="upi-processing-spinner hidden">
+              <div class="bank-loader"></div>
+              <p id="upi-status-text">റിസർവ് ബാങ്ക് സെർവറുമായി ബന്ധപ്പെടുന്നു...</p>
+            </div>
+            <div id="upi-failed-card" class="upi-failed-card hidden">
+              <div class="fail-badge">🚨 TRANSACTION REJECTED (Error #403-GAY)</div>
+              <h3>കാരണം: അമിതമായ Heterosexuality സംശയിക്കപ്പെടുന്നു! 😹</h3>
+              <p class="fail-malayalam">
+                മച്ചാനേ... ₹8,000 ക്യാഷ് തരാൻ Dhananjay എന്നാ RBI Governor ആണോ?! 😭<br>
+                ഇത് നിങ്ങളുടെ ചങ്ങാതിമാർ ഒപ്പിച്ച WhatsApp ട്രോൾ പ്രാങ്ക് ആണ്!
+              </p>
+              <div class="fail-cake-offer">
+                <p>🍰 <strong>എന്നാലും വിഷമിക്കേണ്ട!</strong> നിങ്ങൾ സത്യസന്ധനായ ഒരു പാവം ചെക്കനാണെങ്കിൽ, ധനഞ്ജയ് ചാത്തന്നൂർ ബേക്കറിയിൽ നിന്ന് ഒരു ₹20-ന്റെ അടിപൊളി പ്ലം കേക്കും നല്ല ചൂട് കട്ടൻ ചായയും നേരിട്ട് വാങ്ങിത്തരും!</p>
+              </div>
+              <a href="https://www.instagram.com/dhananjay_403/" target="_blank" rel="noopener noreferrer" class="btn-cake-dm">
+                <span>🍰 Collect Plum Cake via Dhananjay's Instagram 💌</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="result-actions" id="quiz-result-actions">
             <button class="btn-primary-gradient rainbow-shimmer-btn w-full btn-get-offer" onclick="openOfferLetterModal()">
               <span>📜 Generate Official Boyfriend Offer Letter</span>
             </button>
@@ -1319,6 +1370,7 @@
 
         <!-- Suggested Prompt Chips -->
         <div class="chat-quick-chips" id="chat-quick-chips">
+          <button class="quick-chip plumcake-chip" id="chip-plumcake" style="display: none;" onclick="quickSendChat('Where is my ₹8,000 plum cake money? 🍰')">₹8,000 Plum Cake? 🍰</button>
           <button class="quick-chip" onclick="quickSendChat('Why aren\'t you sleeping yet? 😴')">Why aren't you sleeping? 😴</button>
           <button class="quick-chip" onclick="quickSendChat('How was the KSRTC commute today? 🚌')">How's the KSRTC commute? 🚌</button>
           <button class="quick-chip" onclick="quickSendChat('Did you finish your lab code? 💻')">Did you finish lab code? 💻</button>

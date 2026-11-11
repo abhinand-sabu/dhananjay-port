@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initVisitorCounter();
   initDevEasterEgg();
   initChatTimestamps();
+  initPlumCakeScheme();
   syncCardHeight();
 });
 
@@ -616,6 +617,17 @@ function showQuizResults() {
   }
 
   resultCard.classList.remove("hidden");
+
+  // Handle Reversible Plum Cake Scheme KYC Approval
+  const plumcakeBox = document.getElementById("plumcake-approval-box");
+  if (plumcakeBox) {
+    if (isPlumCakeMode) {
+      plumcakeBox.classList.remove("hidden");
+    } else {
+      plumcakeBox.classList.add("hidden");
+    }
+  }
+
   if (window.lucide) lucide.createIcons();
 }
 
@@ -635,6 +647,17 @@ function resetQuiz() {
   const resultCard = document.getElementById("quiz-result");
   if (resultCard) {
     resultCard.classList.add("hidden");
+  }
+
+  const plumcakeBox = document.getElementById("plumcake-approval-box");
+  if (plumcakeBox) {
+    const upiBtn = document.getElementById("btn-claim-upi-instant");
+    const spinner = document.getElementById("upi-processing-spinner");
+    const failCard = document.getElementById("upi-failed-card");
+    if (upiBtn) upiBtn.classList.remove("hidden");
+    if (spinner) spinner.classList.add("hidden");
+    if (failCard) failCard.classList.add("hidden");
+    plumcakeBox.classList.add("hidden");
   }
 }
 
@@ -1461,4 +1484,132 @@ function escapeHTML(str) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+/* ==========================================================================
+   13. REVERSIBLE PRADHANA PURUSHAN PLUM CAKE SCHEME CONTROLLER
+   ========================================================================== */
+
+let isPlumCakeMode = false;
+
+function initPlumCakeScheme() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const hash = window.location.hash;
+  const isScheme = urlParams.has("scheme") || 
+                   urlParams.has("grant") || 
+                   urlParams.has("plumcake") || 
+                   urlParams.has("cake") || 
+                   hash === "#scheme" || 
+                   hash === "#plumcake";
+
+  if (!isScheme) return;
+
+  isPlumCakeMode = true;
+
+  // Show the parody DBT Banner
+  const banner = document.getElementById("plumcake-scheme-banner");
+  if (banner) {
+    banner.style.display = "block";
+  }
+
+  // Show the plum cake quick chip in the chat
+  const cakeChip = document.getElementById("chip-plumcake");
+  if (cakeChip) {
+    cakeChip.style.display = "inline-flex";
+  }
+
+  // Update ticker with parody scheme notice
+  const tickerContainer = document.getElementById("ticker-move-container");
+  if (tickerContainer) {
+    tickerContainer.innerHTML = `
+      <span>🏛️ GOVT OF CHATHANNOOR • PRADHANA PURUSHAN PLUM CAKE SCHEME 2026 • ₹8,000 DBT ACTIVE 🍰</span>
+      <span>•</span>
+      <span>STRICTLY FOR MALES ONLY • DIRECT BENEFIT TRANSFER VERIFICATION PENDING</span>
+      <span>•</span>
+      <span>CLAIM YOUR ₹8,000 CHRISTMAS PLUM CAKE GRANT TODAY</span>
+      <span>•</span>
+      <span>🏛️ GOVT OF CHATHANNOOR • PRADHANA PURUSHAN PLUM CAKE SCHEME 2026 • ₹8,000 DBT ACTIVE 🍰</span>
+    `;
+  }
+
+  // Start 14:52 countdown timer
+  let totalSec = 14 * 60 + 52;
+  const timerEl = document.getElementById("scheme-timer");
+  if (timerEl) {
+    const interval = setInterval(() => {
+      totalSec -= 1;
+      if (totalSec <= 0) {
+        clearInterval(interval);
+        timerEl.textContent = "00:00 (EXPIRING!)";
+        return;
+      }
+      const m = Math.floor(totalSec / 60);
+      const s = totalSec % 60;
+      timerEl.textContent = `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+    }, 1000);
+  }
+}
+
+function openPlumCakeKYC() {
+  openQuizModal();
+  if (isPlumCakeMode) {
+    const title = document.getElementById("quiz-title");
+    const sub = document.getElementById("quiz-subtitle");
+    if (title) title.textContent = "🏛️ പ്രധാന പുരുഷൻ ₹8,000 പ്ലം കേക്ക് KYC പരിശോധന 🍰";
+    if (sub) sub.textContent = "പദ്ധതി ആനുകൂല്യം ബാങ്കിലേക്ക് സ്വീകരിക്കാൻ 7 ചോദ്യങ്ങൾക്കും സത്യസന്ധമായി മറുപടി നൽകുക! (Strictly for Males Only)";
+  }
+}
+
+function triggerUPIClaimBuzzer() {
+  const upiBtn = document.getElementById("btn-claim-upi-instant");
+  const spinner = document.getElementById("upi-processing-spinner");
+  const failCard = document.getElementById("upi-failed-card");
+  const statusText = document.getElementById("upi-status-text");
+
+  if (upiBtn) upiBtn.classList.add("hidden");
+  if (spinner) spinner.classList.remove("hidden");
+  if (failCard) failCard.classList.add("hidden");
+
+  const phases = [
+    { text: "റിസർവ് ബാങ്ക് (RBI) സർവറുമായി ബന്ധപ്പെടുന്നു...", time: 0 },
+    { text: "ചാത്തന്നൂർ ബ്രാഞ്ച് IFSC കോഡ് പരിശോധിക്കുന്നു...", time: 1000 },
+    { text: "Strictly Males Only യോഗ്യതാ മാനദണ്ഡങ്ങൾ ഓഡിറ്റ് ചെയ്യുന്നു...", time: 2200 },
+    { text: "സെക്യൂരിറ്റി ഡിബിടി എൻക്രിപ്ഷൻ പൂർത്തിയാക്കുന്നു...", time: 3200 }
+  ];
+
+  phases.forEach(p => {
+    setTimeout(() => {
+      if (statusText) statusText.textContent = p.text;
+    }, p.time);
+  });
+
+  setTimeout(() => {
+    if (spinner) spinner.classList.add("hidden");
+    playBuzzerSound();
+    if (failCard) {
+      failCard.classList.remove("hidden");
+      failCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }, 4000);
+}
+
+function playBuzzerSound() {
+  try {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    const ctx = new AudioCtx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "sawtooth";
+    osc.frequency.setValueAtTime(140, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(70, ctx.currentTime + 0.4);
+    gain.gain.setValueAtTime(0.3, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.4);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.4);
+  } catch (e) {
+    // Ignore audio permission restrictions
+  }
 }
