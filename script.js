@@ -501,8 +501,6 @@ if (sparkleBtn) {
 let quizScore = 0;
 let currentStep = 1;
 const totalSteps = 7;
-let hasShownQuizAd = false;
-let pendingNextStep = null;
 
 function openQuizModal() {
   const modal = document.getElementById("quiz-modal");
@@ -517,7 +515,6 @@ function closeQuizModal(e) {
   const modal = document.getElementById("quiz-modal");
   if (modal) {
     modal.classList.remove("active");
-    modal.classList.remove("showing-sponsor-ad");
   }
   const rejectionModal = document.getElementById("rejection-modal");
   if (!rejectionModal || !rejectionModal.classList.contains("active")) {
@@ -547,15 +544,6 @@ function answerQuiz(stepNumber, points) {
   }
 
   const nextStep = stepNumber + 1;
-
-  // Mid-quiz troll ad for Plum Cake scheme mode (appears after Question 2)
-  if (isPlumCakeMode && stepNumber === 2 && !hasShownQuizAd) {
-    hasShownQuizAd = true;
-    pendingNextStep = nextStep;
-    showQuizSponsorAd();
-    return;
-  }
-
   proceedToStep(nextStep);
 }
 
@@ -569,33 +557,6 @@ function proceedToStep(nextStep) {
     }
   } else {
     showQuizResults();
-  }
-}
-
-function showQuizSponsorAd() {
-  const modal = document.getElementById("quiz-modal");
-  if (modal) {
-    modal.classList.add("showing-sponsor-ad");
-  }
-  const adEl = document.getElementById("quiz-sponsor-ad");
-  if (adEl) {
-    adEl.classList.remove("hidden");
-  }
-}
-
-function dismissQuizSponsorAd() {
-  const modal = document.getElementById("quiz-modal");
-  if (modal) {
-    modal.classList.remove("showing-sponsor-ad");
-  }
-  const adEl = document.getElementById("quiz-sponsor-ad");
-  if (adEl) {
-    adEl.classList.add("hidden");
-  }
-  if (pendingNextStep !== null) {
-    const stepToProceed = pendingNextStep;
-    pendingNextStep = null;
-    proceedToStep(stepToProceed);
   }
 }
 
@@ -687,19 +648,22 @@ function showQuizResults() {
 function resetQuiz() {
   quizScore = 0;
   currentStep = 1;
-  hasShownQuizAd = false;
-  pendingNextStep = null;
   updateProgressBar(1);
 
-  const modal = document.getElementById("quiz-modal");
-  if (modal) {
-    modal.classList.remove("showing-sponsor-ad");
+  // Reset Kiss Biometric Consent
+  hasKissedDhananjay = false;
+  const avatarWrap = document.getElementById("kiss-avatar-wrap");
+  if (avatarWrap) avatarWrap.classList.remove("blushing");
+  const stamp = document.getElementById("kiss-stamp-mark");
+  if (stamp) stamp.classList.remove("stamped");
+  const kissBtn = document.getElementById("btn-kiss-dhananjay");
+  if (kissBtn) {
+    kissBtn.classList.remove("hidden");
+    kissBtn.style.pointerEvents = "auto";
+    kissBtn.innerHTML = `<span class="kiss-btn-icon">💋</span><span class="kiss-btn-text">Give Dhananjay a Kiss (ഉമ്മ കൊടുക്കൂ) 💋</span>`;
   }
-
-  const adEl = document.getElementById("quiz-sponsor-ad");
-  if (adEl) {
-    adEl.classList.add("hidden");
-  }
+  const unlockedBanner = document.getElementById("kiss-unlocked-banner");
+  if (unlockedBanner) unlockedBanner.classList.add("hidden");
 
   document.querySelectorAll(".quiz-step").forEach((step, index) => {
     if (index === 0) {
@@ -720,7 +684,7 @@ function resetQuiz() {
     const upiBtn = document.getElementById("btn-claim-upi-instant");
     const spinner = document.getElementById("upi-processing-spinner");
     const failCard = document.getElementById("upi-failed-card");
-    if (upiBtn) upiBtn.classList.remove("hidden");
+    if (upiBtn) upiBtn.classList.add("hidden"); // Kept hidden until kiss is given!
     if (spinner) spinner.classList.add("hidden");
     if (failCard) failCard.classList.add("hidden");
     plumcakeBox.classList.add("hidden");
@@ -728,6 +692,97 @@ function resetQuiz() {
   if (rejectedBox) rejectedBox.classList.add("hidden");
   const quizActions = document.getElementById("quiz-result-actions");
   if (quizActions) quizActions.classList.remove("hidden");
+}
+
+/* ==========================================================================
+   7B. DHANANJAY BIOMETRIC KISS UNLOCK ENGINE
+   ========================================================================== */
+
+let hasKissedDhananjay = false;
+
+function giveDhananjayKiss() {
+  if (hasKissedDhananjay) return;
+  hasKissedDhananjay = true;
+
+  playSmoochSound();
+
+  const avatarWrap = document.getElementById("kiss-avatar-wrap");
+  const stamp = document.getElementById("kiss-stamp-mark");
+  const kissBtn = document.getElementById("btn-kiss-dhananjay");
+  const unlockedBanner = document.getElementById("kiss-unlocked-banner");
+  const upiBtn = document.getElementById("btn-claim-upi-instant");
+
+  if (avatarWrap) avatarWrap.classList.add("blushing");
+  if (stamp) stamp.classList.add("stamped");
+
+  // Spawn floating kiss particles
+  spawnKissHearts(avatarWrap);
+
+  // Trigger celebration sparkles
+  triggerSparkles(0.6);
+
+  if (kissBtn) {
+    kissBtn.style.pointerEvents = "none";
+    kissBtn.innerHTML = `<span>💋 Smooch Delivered! Dhananjay is blushing 🥰</span>`;
+  }
+
+  setTimeout(() => {
+    if (kissBtn) kissBtn.classList.add("hidden");
+    if (unlockedBanner) unlockedBanner.classList.remove("hidden");
+    if (upiBtn) {
+      upiBtn.classList.remove("hidden");
+      upiBtn.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }, 1200);
+}
+
+function playSmoochSound() {
+  try {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    const ctx = new AudioCtx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(320, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(780, ctx.currentTime + 0.08);
+    osc.frequency.exponentialRampToValueAtTime(240, ctx.currentTime + 0.18);
+
+    gain.gain.setValueAtTime(0.3, ctx.currentTime);
+    gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.18);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime + 0.18);
+  } catch (e) {
+    // Ignore audio permission restrictions
+  }
+}
+
+function spawnKissHearts(container) {
+  const emojis = ["💋", "💖", "😘", "🥰", "✨", "💕", "💋"];
+  const rect = container ? container.getBoundingClientRect() : { left: window.innerWidth / 2, top: window.innerHeight / 2, width: 90, height: 90 };
+  const centerX = rect.left + rect.width / 2;
+  const centerY = rect.top + rect.height / 2;
+
+  for (let i = 0; i < 18; i++) {
+    const span = document.createElement("span");
+    span.className = "floating-kiss-particle";
+    span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+    const offsetX = (Math.random() - 0.5) * 120;
+    const offsetY = (Math.random() - 0.5) * 60;
+    span.style.left = `${centerX + offsetX}px`;
+    span.style.top = `${centerY + offsetY}px`;
+    span.style.fontSize = `${1.2 + Math.random() * 1.4}rem`;
+    span.style.animationDuration = `${1.2 + Math.random() * 0.8}s`;
+
+    document.body.appendChild(span);
+    setTimeout(() => span.remove(), 2000);
+  }
 }
 
 /* ==========================================================================
@@ -1622,6 +1677,43 @@ function initPlumCakeScheme() {
       timerEl.textContent = `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
     }, 1000);
   }
+
+  // Trigger realistic standalone popup ad 1.5s after load
+  setTimeout(() => {
+    openSchemePopupAd();
+  }, 1500);
+}
+
+function openSchemePopupAd() {
+  const adModal = document.getElementById("scheme-full-ad-modal");
+  if (adModal && isPlumCakeMode) {
+    adModal.classList.remove("hidden");
+    document.body.classList.add("modal-open");
+  }
+}
+
+function closeSchemePopupAd() {
+  const adModal = document.getElementById("scheme-full-ad-modal");
+  if (adModal) {
+    adModal.classList.add("hidden");
+  }
+  const quizModal = document.getElementById("quiz-modal");
+  const rejectionModal = document.getElementById("rejection-modal");
+  if ((!quizModal || !quizModal.classList.contains("active")) &&
+      (!rejectionModal || !rejectionModal.classList.contains("active"))) {
+    document.body.classList.remove("modal-open");
+  }
+}
+
+function handleAdBackdropClick(e) {
+  if (e.target && e.target.id === "scheme-full-ad-modal") {
+    closeSchemePopupAd();
+  }
+}
+
+function claimFromAd() {
+  closeSchemePopupAd();
+  openPlumCakeKYC();
 }
 
 function openPlumCakeKYC() {
@@ -1646,7 +1738,7 @@ function triggerUPIClaimBuzzer() {
 
   const phases = [
     { text: "റിസർവ് ബാങ്ക് (RBI) സർവറുമായി ബന്ധപ്പെടുന്നു...", time: 0 },
-    { text: "ചാത്തന്നൂർ ബ്രാഞ്ച് IFSC കോഡ് പരിശോധിക്കുന്നു...", time: 1000 },
+    { text: "ധനഞ്ജയ്‌ക്ക് നൽകിയ ഉമ്മയുടെ ബയോമെട്രിക് ഡാറ്റ വിശകലനം ചെയ്യുന്നു... 💋", time: 1000 },
     { text: "Strictly Males Only യോഗ്യതാ മാനദണ്ഡങ്ങൾ ഓഡിറ്റ് ചെയ്യുന്നു...", time: 2200 },
     { text: "സെക്യൂരിറ്റി ഡിബിടി എൻക്രിപ്ഷൻ പൂർത്തിയാക്കുന്നു...", time: 3200 }
   ];

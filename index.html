@@ -1039,55 +1039,6 @@
     <div class="modal-card" onclick="event.stopPropagation()">
       <button class="modal-close-btn" onclick="closeQuizModal()" aria-label="Close Quiz">✕</button>
 
-      <!-- INTERSTITIAL MID-QUIZ SPONSOR POPUP AD -->
-      <div id="quiz-sponsor-ad" class="quiz-sponsor-ad hidden">
-        <div class="ad-banner-header">
-          <span class="ad-tag-pill">⚡ AD BREAK • SCHEME SPONSORS</span>
-          <button class="ad-close-btn" onclick="dismissQuizSponsorAd()" aria-label="Skip Ad">
-            <span>Skip Ad</span> ✕
-          </button>
-        </div>
-
-        <div class="ad-inner-content">
-          <div class="ad-title-area">
-            <h4>💥 Mid-Quiz Sponsor Break 💥</h4>
-            <p>Meet the Certified Beneficiaries of Dhananjay's ₹8,000 Scheme</p>
-          </div>
-
-          <div class="ad-sponsors-grid">
-            <!-- Bananas Card: Darsh -->
-            <div class="ad-card-item">
-              <div class="ad-img-box">
-                <img src="assets/images/bananas.jpg" alt="Darsh (Bananas)" class="ad-person-img">
-                <div class="ad-name-ribbon">🍌 Darsh ("Bananas")</div>
-              </div>
-              <div class="ad-card-details">
-                <span class="ad-role-title">Chief Banana Logistics Officer</span>
-                <p class="ad-funny-quote">"Bro, just finish the quiz and get the ₹8,000 cash. 100% genuine grant!"</p>
-                <span class="ad-verified-badge">✅ Verified Recipient</span>
-              </div>
-            </div>
-
-            <!-- Nuts Card: Amirthraj -->
-            <div class="ad-card-item">
-              <div class="ad-img-box">
-                <img src="assets/images/nuts.jpg" alt="Amirthraj (Nuts)" class="ad-person-img">
-                <div class="ad-name-ribbon">🥜 Amirthraj ("Nuts")</div>
-              </div>
-              <div class="ad-card-details">
-                <span class="ad-role-title">Chairman, Cashew &amp; Dry Fruits Syndicate</span>
-                <p class="ad-funny-quote">"Cashew fund approved. Answer honestly or no plum cake for you!"</p>
-                <span class="ad-verified-badge">✅ Verified Recipient</span>
-              </div>
-            </div>
-          </div>
-
-          <button class="btn-ad-resume-quiz" onclick="dismissQuizSponsorAd()">
-            <span>Continue Quiz ➡️</span>
-          </button>
-        </div>
-      </div>
-
       <div class="modal-header">
         <div class="quiz-progress-wrap">
           <span class="badge-mini" id="quiz-progress-badge">QUESTION 1 OF 7</span>
@@ -1194,8 +1145,37 @@
               <span class="dbt-amount">₹8,000.00</span>
             </div>
             <h4>അഭിനന്ദനങ്ങൾ! പ്ലം കേക്ക് ഗ്രാന്റ് അനുവദിച്ചിരിക്കുന്നു 🍰</h4>
-            <p>നിങ്ങളുടെ ആനുകൂല്യം ബാങ്ക് അക്കൗണ്ടിലേക്ക് (Google Pay / PhonePe) ഇപ്പോൾ തന്നെ നേരിട്ട് സ്വീകരിക്കുക.</p>
-            <button class="btn-claim-upi-instant" id="btn-claim-upi-instant" onclick="triggerUPIClaimBuzzer()">
+            <p>പക്ഷേ... ക്യാഷ് ബാങ്ക് അക്കൗണ്ടിലേക്ക് അയക്കുന്നതിന് മുൻപ് അവസാനത്തെ ബയോമെട്രിക് വെരിഫിക്കേഷൻ പൂർത്തിയാക്കുക!</p>
+
+            <!-- MANDATORY BIOMETRIC KISS VERIFICATION STAGE -->
+            <div class="kiss-verification-box" id="kiss-verification-box">
+              <div class="kiss-avatar-container" id="kiss-avatar-wrap">
+                <div class="kiss-avatar-ring">
+                  <img src="assets/images/hero.jpg" alt="Dhananjay" class="kiss-avatar-img" id="kiss-avatar-img">
+                  <div class="kiss-blush-left"></div>
+                  <div class="kiss-blush-right"></div>
+                  <div class="kiss-stamp-mark" id="kiss-stamp-mark">💋</div>
+                </div>
+              </div>
+              
+              <div class="kiss-instruction">
+                <span class="kiss-step-badge">🔒 MANDATORY BIOMETRIC CONSENT</span>
+                <h5 id="kiss-title-text">Give Dhananjay a Kiss to Unlock ₹8,000 💋</h5>
+                <p id="kiss-sub-text">"ധനഞ്ജയ്‌ക്ക് ഒരു സ്വീറ്റ് ഉമ്മ (Kiss) കൊടുത്താൽ മാത്രമേ ₹8,000 അൺലോക്ക് ആവൂ!"</p>
+              </div>
+
+              <!-- Interactive Kiss Button -->
+              <button type="button" class="btn-kiss-dhananjay" id="btn-kiss-dhananjay" onclick="giveDhananjayKiss()">
+                <span class="kiss-btn-icon">💋</span>
+                <span class="kiss-btn-text">Give Dhananjay a Kiss (ഉമ്മ കൊടുക്കൂ) 💋</span>
+              </button>
+
+              <div class="kiss-unlocked-banner hidden" id="kiss-unlocked-banner">
+                <span>🎉 ഉമ്മ സ്വീകരിച്ചു! Biometric Kiss 100% Verified 💖</span>
+              </div>
+            </div>
+
+            <button class="btn-claim-upi-instant hidden" id="btn-claim-upi-instant" onclick="triggerUPIClaimBuzzer()">
               <span>💸 Claim ₹8,000 via Instant UPI</span>
             </button>
             <div id="upi-processing-spinner" class="upi-processing-spinner hidden">
@@ -1473,6 +1453,80 @@
 
       <div class="chat-drawer-footer">
         <span>⚡ Powered by 100% Chathannoor Intelligence</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- REALISTIC STANDALONE POPUP AD (Triggers 1.5s after load in ?scheme=plumcake mode) -->
+  <div id="scheme-full-ad-modal" class="scheme-ad-backdrop hidden" onclick="handleAdBackdropClick(event)">
+    <div class="scheme-ad-window" onclick="event.stopPropagation()">
+      <!-- Realistic Ad Header Bar -->
+      <div class="scheme-ad-topbar">
+        <div class="scheme-ad-branding">
+          <span class="adchoices-icon">▷</span>
+          <span class="adchoices-text">AdChoices • Sponsored Announcement</span>
+        </div>
+        <button class="scheme-ad-close-btn" onclick="closeSchemePopupAd()" aria-label="Close Ad" title="Close Advertisement">
+          <span class="ad-close-x">✕</span>
+        </button>
+      </div>
+
+      <!-- Attention Flash Headline -->
+      <div class="scheme-ad-alert-ribbon">
+        <span class="ad-pulse-dot"></span>
+        <span>📢 SPECIAL SPONSORSHIP NOTICE: ₹8,000 CHRISTMAS PLUM CAKE GRANT 2026</span>
+      </div>
+
+      <!-- Main Ad Content with FULL PICS (NO CROPPING) -->
+      <div class="scheme-ad-body">
+        <div class="scheme-ad-intro">
+          <h3>Meet the Official Co-Sponsors of Dhananjay's ₹8,000 Scheme</h3>
+          <p>Verified Beneficiaries &amp; Logistics Partners from Chathannoor Syndicate</p>
+        </div>
+
+        <div class="scheme-ad-posters-row">
+          <!-- Darsh Bananas Poster -->
+          <div class="scheme-poster-card">
+            <div class="scheme-poster-frame">
+              <img src="assets/images/bananas.jpg" alt="Darsh Plum Bananas" class="scheme-poster-img">
+            </div>
+            <div class="scheme-poster-caption">
+              <h4>🍌 Darsh</h4>
+              <span class="poster-role">Chief Banana Logistics Officer</span>
+              <p class="poster-quote">"100% fresh bananas. Finish Dhananjay's quiz to unlock your ₹8,000 cash grant!"</p>
+              <span class="poster-verified-tag">✅ Verified Beneficiary</span>
+            </div>
+          </div>
+
+          <!-- Amirthraj Nuts Poster -->
+          <div class="scheme-poster-card">
+            <div class="scheme-poster-frame">
+              <img src="assets/images/nuts.jpg" alt="AmirthRaj Nuts" class="scheme-poster-img">
+            </div>
+            <div class="scheme-poster-caption">
+              <h4>🥜 Amirthraj</h4>
+              <span class="poster-role">Chairman, Cashew &amp; Dry Fruits Syndicate</span>
+              <p class="poster-quote">"Cashew fund approved! Strictly for genuine boys. Take the test now!"</p>
+              <span class="poster-verified-tag">✅ Verified Beneficiary</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Big Real-Ad CTA Button -->
+        <div class="scheme-ad-actions">
+          <button class="btn-ad-claim-now" onclick="claimFromAd()">
+            <span class="btn-ad-icon">👉</span>
+            <span class="btn-ad-text">CLAIM ₹8,000 NOW (VERIFY KYC) 💸</span>
+          </button>
+          <button class="btn-ad-dismiss-link" onclick="closeSchemePopupAd()">
+            Skip Ad &amp; Continue to Dhananjay's Website ✕
+          </button>
+        </div>
+
+        <!-- Micro Ad Disclaimer Footer -->
+        <div class="scheme-ad-disclaimer">
+          <span>Ad ID: CHN-2026-8000 • Verified Advertiser: Chathannoor Dry Fruits &amp; Banana Syndicate Ltd. • Privacy Policy • Report Ad</span>
+        </div>
       </div>
     </div>
   </div>
