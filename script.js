@@ -501,6 +501,8 @@ if (sparkleBtn) {
 let quizScore = 0;
 let currentStep = 1;
 const totalSteps = 7;
+let hasShownQuizAd = false;
+let pendingNextStep = null;
 
 function openQuizModal() {
   const modal = document.getElementById("quiz-modal");
@@ -544,6 +546,19 @@ function answerQuiz(stepNumber, points) {
   }
 
   const nextStep = stepNumber + 1;
+
+  // Mid-quiz troll ad for Plum Cake scheme mode (appears after Question 2)
+  if (isPlumCakeMode && stepNumber === 2 && !hasShownQuizAd) {
+    hasShownQuizAd = true;
+    pendingNextStep = nextStep;
+    showQuizSponsorAd();
+    return;
+  }
+
+  proceedToStep(nextStep);
+}
+
+function proceedToStep(nextStep) {
   if (nextStep <= totalSteps) {
     currentStep = nextStep;
     updateProgressBar(nextStep);
@@ -553,6 +568,25 @@ function answerQuiz(stepNumber, points) {
     }
   } else {
     showQuizResults();
+  }
+}
+
+function showQuizSponsorAd() {
+  const adEl = document.getElementById("quiz-sponsor-ad");
+  if (adEl) {
+    adEl.classList.remove("hidden");
+  }
+}
+
+function dismissQuizSponsorAd() {
+  const adEl = document.getElementById("quiz-sponsor-ad");
+  if (adEl) {
+    adEl.classList.add("hidden");
+  }
+  if (pendingNextStep !== null) {
+    const stepToProceed = pendingNextStep;
+    pendingNextStep = null;
+    proceedToStep(stepToProceed);
   }
 }
 
@@ -644,7 +678,14 @@ function showQuizResults() {
 function resetQuiz() {
   quizScore = 0;
   currentStep = 1;
+  hasShownQuizAd = false;
+  pendingNextStep = null;
   updateProgressBar(1);
+
+  const adEl = document.getElementById("quiz-sponsor-ad");
+  if (adEl) {
+    adEl.classList.add("hidden");
+  }
 
   document.querySelectorAll(".quiz-step").forEach((step, index) => {
     if (index === 0) {
@@ -1537,20 +1578,6 @@ function initPlumCakeScheme() {
     cakeChip.style.display = "inline-flex";
   }
 
-  // Show the sponsors quick chip in the chat
-  const sponsorsChip = document.getElementById("chip-sponsors");
-  if (sponsorsChip) {
-    sponsorsChip.style.display = "inline-flex";
-  }
-
-  // Display Parody Sponsorship popup after 2.5 seconds
-  setTimeout(() => {
-    const popup = document.getElementById("scheme-sponsor-popup");
-    if (popup && isPlumCakeMode) {
-      popup.style.display = "block";
-    }
-  }, 2500);
-
   // Update ticker with parody scheme notice
   const tickerContainer = document.getElementById("ticker-move-container");
   if (tickerContainer) {
@@ -1584,20 +1611,12 @@ function initPlumCakeScheme() {
 }
 
 function openPlumCakeKYC() {
-  closeSponsorPopup();
   openQuizModal();
   if (isPlumCakeMode) {
     const title = document.getElementById("quiz-title");
     const sub = document.getElementById("quiz-subtitle");
     if (title) title.textContent = "🏛️ പ്രധാന പുരുഷൻ ₹8,000 പ്ലം കേക്ക് KYC പരിശോധന 🍰";
     if (sub) sub.textContent = "പദ്ധതി ആനുകൂല്യം ബാങ്കിലേക്ക് സ്വീകരിക്കാൻ 7 ചോദ്യങ്ങൾക്കും സത്യസന്ധമായി മറുപടി നൽകുക! (Strictly for Males Only)";
-  }
-}
-
-function closeSponsorPopup() {
-  const popup = document.getElementById("scheme-sponsor-popup");
-  if (popup) {
-    popup.style.display = "none";
   }
 }
 

@@ -83,26 +83,6 @@
         <button class="scheme-cta-btn" onclick="openPlumCakeKYC()">KYC ചെയ്ത് ആനുകൂല്യം നേടൂ 💸</button>
       </div>
     </div>
-    <!-- Scheme Verified Beneficiaries & Chief Sponsors Ticker -->
-    <div class="scheme-sponsors-strip">
-      <span class="strip-label">🏆 മുഖ്യ പ്രായോജകരും വേരിഫൈഡ് ഗുണഭോക്താക്കളും:</span>
-      <div class="strip-items">
-        <div class="strip-person">
-          <img src="assets/images/bananas.jpg" alt="Bananas" class="strip-avatar">
-          <div class="strip-meta">
-            <strong>ശ്രീ. Bananas (Banana Logistics Incharge) 🍌</strong>
-            <span>✅ ₹8,000 ക്രെഡിറ്റായി • 'പദ്ധതി 100% സത്യം!'</span>
-          </div>
-        </div>
-        <div class="strip-person">
-          <img src="assets/images/nuts.jpg" alt="Nuts" class="strip-avatar">
-          <div class="strip-meta">
-            <strong>ശ്രീ. Nuts (Chief Dry Fruits Auditor) 🥜</strong>
-            <span>✅ ₹8,000 ക്രെഡിറ്റായി • 'കശുവണ്ടി ഫണ്ട് പാസ്സായി!'</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- Mobile-Friendly Sticky Navigation -->
@@ -1059,6 +1039,55 @@
     <div class="modal-card" onclick="event.stopPropagation()">
       <button class="modal-close-btn" onclick="closeQuizModal()" aria-label="Close Quiz">✕</button>
 
+      <!-- INTERSTITIAL MID-QUIZ SPONSOR POPUP AD -->
+      <div id="quiz-sponsor-ad" class="quiz-sponsor-ad hidden">
+        <div class="ad-banner-header">
+          <span class="ad-tag-pill">⚡ AD BREAK • SCHEME SPONSORS</span>
+          <button class="ad-close-btn" onclick="dismissQuizSponsorAd()" aria-label="Skip Ad">
+            <span>Skip Ad</span> ✕
+          </button>
+        </div>
+
+        <div class="ad-inner-content">
+          <div class="ad-title-area">
+            <h4>💥 Mid-Quiz Sponsor Break 💥</h4>
+            <p>Meet the Certified Beneficiaries of Dhananjay's ₹8,000 Scheme</p>
+          </div>
+
+          <div class="ad-sponsors-grid">
+            <!-- Bananas Card -->
+            <div class="ad-card-item">
+              <div class="ad-img-box">
+                <img src="assets/images/bananas.jpg" alt="Bananas" class="ad-person-img">
+                <div class="ad-name-ribbon">🍌 Bananas</div>
+              </div>
+              <div class="ad-card-details">
+                <span class="ad-role-title">Banana Logistics Incharge</span>
+                <p class="ad-funny-quote">"Bro, just finish the quiz and get the ₹8,000 cash. 100% genuine grant!"</p>
+                <span class="ad-verified-badge">✅ Verified Recipient</span>
+              </div>
+            </div>
+
+            <!-- Nuts Card -->
+            <div class="ad-card-item">
+              <div class="ad-img-box">
+                <img src="assets/images/nuts.jpg" alt="Nuts" class="ad-person-img">
+                <div class="ad-name-ribbon">🥜 Nuts</div>
+              </div>
+              <div class="ad-card-details">
+                <span class="ad-role-title">Cashew &amp; Dry Fruits Syndicate</span>
+                <p class="ad-funny-quote">"Cashew fund approved. Answer honestly or no plum cake for you!"</p>
+                <span class="ad-verified-badge">✅ Verified Recipient</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-ad-resume-quiz" onclick="dismissQuizSponsorAd()">
+            <span>Continue Quiz ➡️</span>
+          </button>
+        </div>
+      </div>
+
       <div class="modal-header">
         <div class="quiz-progress-wrap">
           <span class="badge-mini" id="quiz-progress-badge">QUESTION 1 OF 7</span>
@@ -1184,24 +1213,6 @@
                 <p>🍰 <strong>എന്നാലും വിഷമിക്കേണ്ട!</strong> നിങ്ങൾ സത്യസന്ധനായ ഒരു പാവം ചെക്കനാണെങ്കിൽ, ധനഞ്ജയ് ചാത്തന്നൂർ ബേക്കറിയിൽ നിന്ന് ഒരു ₹20-ന്റെ അടിപൊളി പ്ലം കേക്കും നല്ല ചൂട് കട്ടൻ ചായയും നേരിട്ട് വാങ്ങിത്തരും!</p>
               </div>
 
-              <!-- Micro Parody Sponsor Quotes -->
-              <div class="scheme-sponsor-avatars-row">
-                <div class="micro-sponsor-item">
-                  <img src="assets/images/bananas.jpg" alt="Bananas" class="micro-avatar">
-                  <div class="micro-sponsor-text">
-                    <strong>Bananas 🍌</strong>
-                    <span>"എനിക്കും ഇതുപോലെ പറ്റിച്ചതാ ബ്രോ 😭"</span>
-                  </div>
-                </div>
-                <div class="micro-sponsor-item">
-                  <img src="assets/images/nuts.jpg" alt="Nuts" class="micro-avatar">
-                  <div class="micro-sponsor-text">
-                    <strong>Nuts 🥜</strong>
-                    <span>"ഞാൻ കശുവണ്ടി തിന്നോണ്ടിരിക്കാം, നീ പോയി DM ചെയ്യ്!"</span>
-                  </div>
-                </div>
-              </div>
-
               <a href="https://www.instagram.com/dhananjay_403/" target="_blank" rel="noopener noreferrer" class="btn-cake-dm">
                 <span>🍰 Collect Plum Cake via Dhananjay's Instagram 💌</span>
               </a>
@@ -1219,24 +1230,6 @@
             <p style="color: #FCA5A5; font-size: 0.85rem; margin-bottom: 0;">
               കുറഞ്ഞത് 55% എങ്കിലും സ്കോർ ചെയ്യാതെ Dhananjay-യുടെ പ്ലം കേക്ക് കഷ്ണത്തിൽ പോലും തൊടാൻ അനുവാദമില്ല moné! 💀
             </p>
-
-            <!-- Micro Parody Sponsor Reactions -->
-            <div class="scheme-sponsor-avatars-row">
-              <div class="micro-sponsor-item">
-                <img src="assets/images/bananas.jpg" alt="Bananas" class="micro-avatar">
-                <div class="micro-sponsor-text">
-                  <strong>Bananas 🍌</strong>
-                  <span>"സ്കോർ കുറഞ്ഞുപോയി ബ്രോ..."</span>
-                </div>
-              </div>
-              <div class="micro-sponsor-item">
-                <img src="assets/images/nuts.jpg" alt="Nuts" class="micro-avatar">
-                <div class="micro-sponsor-text">
-                  <strong>Nuts 🥜</strong>
-                  <span>"₹8,000 കിട്ടില്ലെന്ന് ഞാൻ അന്നേ പറഞ്ഞതാ!"</span>
-                </div>
-              </div>
-            </div>
 
             <button class="btn-retake-kyc" onclick="resetQuiz()">
               <span>🔄 Retake KYC Test (വീണ്ടും ശ്രമിക്കൂ)</span>
@@ -1446,11 +1439,9 @@
         <!-- Suggested Prompt Chips -->
         <div class="chat-quick-chips" id="chat-quick-chips">
           <button class="quick-chip plumcake-chip" id="chip-plumcake" style="display: none;" onclick="quickSendChat('Where is my ₹8,000 plum cake money? 🍰')">₹8,000 Plum Cake? 🍰</button>
-          <button class="quick-chip plumcake-chip" id="chip-sponsors" style="display: none;" onclick="quickSendChat('Who are Nuts and Bananas? 🍌🥜')">Who are Nuts &amp; Bananas? 🍌🥜</button>
           <button class="quick-chip" onclick="quickSendChat('Why aren\'t you sleeping yet? 😴')">Why aren't you sleeping? 😴</button>
           <button class="quick-chip" onclick="quickSendChat('How was the KSRTC commute today? 🚌')">How's the KSRTC commute? 🚌</button>
           <button class="quick-chip" onclick="quickSendChat('Did you finish your lab code? 💻')">Did you finish lab code? 💻</button>
-          <button class="quick-chip" onclick="quickSendChat('Tell me about your childhood crush Diya 🌸')">Childhood crush Diya? 🌸</button>
           <button class="quick-chip" onclick="quickSendChat('Tell me your worst dad joke 💀')">Drop a dad joke 💀</button>
         </div>
 
@@ -1484,33 +1475,6 @@
         <span>⚡ Powered by 100% Chathannoor Intelligence</span>
       </div>
     </div>
-  </div>
-
-  <!-- PARODY SPONSORSHIP POPUP AD (Only active in ?scheme=plumcake mode) -->
-  <div id="scheme-sponsor-popup" class="scheme-sponsor-popup" style="display: none;">
-    <button class="sponsor-popup-close" onclick="closeSponsorPopup()" aria-label="Close Ad">✕</button>
-    <div class="sponsor-popup-badge">📢 ഔദ്യോഗിക സ്പോൺസർ പരസ്യം</div>
-    <div class="sponsor-popup-body">
-      <div class="sponsor-popup-profile">
-        <img src="assets/images/bananas.jpg" alt="ശ്രീ. Bananas" class="sponsor-popup-img">
-        <div class="sponsor-popup-details">
-          <h4>ശ്രീ. Bananas 🍌</h4>
-          <span class="sponsor-role">Director, Banana Logistics Board</span>
-          <p class="sponsor-quote">"പഴംപൊരിയും പ്ലം കേക്കും ഞങ്ങൾ സ്പോൺസർ ചെയ്യുന്നു!"</p>
-        </div>
-      </div>
-      <div class="sponsor-popup-profile">
-        <img src="assets/images/nuts.jpg" alt="ശ്രീ. Nuts" class="sponsor-popup-img">
-        <div class="sponsor-popup-details">
-          <h4>ശ്രീ. Nuts 🥜</h4>
-          <span class="sponsor-role">Chairman, Cashew &amp; Dry Fruits Syndicate</span>
-          <p class="sponsor-quote">"₹8,000 വാങ്ങിയില്ലെങ്കിൽ കശുവണ്ടി മുഴുവൻ ഞാൻ തിന്നും!"</p>
-        </div>
-      </div>
-    </div>
-    <button class="btn-sponsor-cta" onclick="openPlumCakeKYC(); closeSponsorPopup();">
-      <span>എനിക്കും ₹8,000 വേണം 🍰</span>
-    </button>
   </div>
 
   <script src="script.js"></script>
