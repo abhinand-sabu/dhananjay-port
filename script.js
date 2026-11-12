@@ -517,6 +517,7 @@ function closeQuizModal(e) {
   const modal = document.getElementById("quiz-modal");
   if (modal) {
     modal.classList.remove("active");
+    modal.classList.remove("showing-sponsor-ad");
   }
   const rejectionModal = document.getElementById("rejection-modal");
   if (!rejectionModal || !rejectionModal.classList.contains("active")) {
@@ -572,6 +573,10 @@ function proceedToStep(nextStep) {
 }
 
 function showQuizSponsorAd() {
+  const modal = document.getElementById("quiz-modal");
+  if (modal) {
+    modal.classList.add("showing-sponsor-ad");
+  }
   const adEl = document.getElementById("quiz-sponsor-ad");
   if (adEl) {
     adEl.classList.remove("hidden");
@@ -579,6 +584,10 @@ function showQuizSponsorAd() {
 }
 
 function dismissQuizSponsorAd() {
+  const modal = document.getElementById("quiz-modal");
+  if (modal) {
+    modal.classList.remove("showing-sponsor-ad");
+  }
   const adEl = document.getElementById("quiz-sponsor-ad");
   if (adEl) {
     adEl.classList.add("hidden");
@@ -681,6 +690,11 @@ function resetQuiz() {
   hasShownQuizAd = false;
   pendingNextStep = null;
   updateProgressBar(1);
+
+  const modal = document.getElementById("quiz-modal");
+  if (modal) {
+    modal.classList.remove("showing-sponsor-ad");
+  }
 
   const adEl = document.getElementById("quiz-sponsor-ad");
   if (adEl) {
