@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>SITE TAKEN DOWN 🛑 | Someone Couldn't Take The Jokes</title>
   
-  <meta name="description" content="Site temporarily or permanently decommissioned due to acute humor deficiency and fragile ego protocols.">
-  <meta name="theme-color" content="#0f1117">
+  <meta name="description" content="Site permanently decommissioned due to acute humor deficiency and delicate ego protocols.">
+  <meta name="theme-color" content="#090a0f">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,8 +142,17 @@
       margin-bottom: 36px;
     }
 
-    .subtitle strong {
-      color: #fca5a5;
+    /* Redacted black bar styling */
+    .redacted {
+      background: #1e293b;
+      color: #38bdf8;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: inline-block;
+      border: 1px solid rgba(56, 189, 248, 0.2);
     }
 
     /* Incident Dossier Card */
@@ -162,7 +171,7 @@
     }
 
     .dossier-card::before {
-      content: "OFFICIAL SEIZURE NOTICE";
+      content: "OFFICIAL REDACTION NOTICE";
       position: absolute;
       top: 14px;
       right: 18px;
@@ -318,7 +327,7 @@
       white-space: nowrap;
     }
 
-    /* Live Feed / Ticker of copium */
+    /* Live Feed / Ticker */
     .coping-feed {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.85rem;
@@ -331,37 +340,16 @@
       font-weight: 700;
     }
 
-    /* Secret Vault Button */
-    .vault-section {
-      margin-top: 20px;
+    /* Legal Disclaimer */
+    .legal-notice {
+      margin-top: 30px;
       padding-top: 24px;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .vault-link {
-      color: #94a3b8;
-      text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
+      color: #64748b;
       font-family: 'JetBrains Mono', monospace;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(255, 255, 255, 0.02);
-      transition: all 0.2s ease;
-    }
-
-    .vault-link:hover {
-      color: #f8fafc;
-      border-color: rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.06);
+      line-height: 1.6;
     }
 
     /* Floating Violins & Tissues Animation */
@@ -414,40 +402,40 @@
     <h1>Took it down cuz someone can't take jokes 😔🥀</h1>
     
     <p class="subtitle">
-      The Official Dhananjay Dating Portfolio has been permanently decommissioned.
-      The level of rizz, Nuts &amp; Bananas sponsorships, and certified banter proved too perilous for sensitive feelings.
+      The portfolio previously hosted here has been officially and permanently decommissioned.
+      The level of banter proved too perilous for an unnamed, highly sensitive individual.
     </p>
 
     <!-- Dossier Breakdown -->
     <div class="dossier-card">
-      <div class="stamp">CENSORED</div>
+      <div class="stamp">CLASSIFIED</div>
 
       <div class="dossier-header">
         <span>📄</span>
-        <span>INCIDENT REPORT &bull; CASE #DHANANJAY-CRYBABY-404</span>
+        <span>INCIDENT DOSSIER &bull; CASE #BANTER-404</span>
       </div>
 
       <div class="dossier-grid">
         <div class="dossier-item">
-          <div class="dossier-label">Subject</div>
-          <div class="dossier-val">Dhananjay (18, CS)</div>
+          <div class="dossier-label">Offended Party</div>
+          <div class="dossier-val"><span class="redacted">[REDACTED]</span></div>
         </div>
         <div class="dossier-item">
-          <div class="dossier-label">Zone of Operation</div>
-          <div class="dossier-val">Chathannoor, Kerala</div>
+          <div class="dossier-label">Jurisdiction</div>
+          <div class="dossier-val"><span class="redacted">CONFIDENTIAL</span></div>
         </div>
         <div class="dossier-item">
           <div class="dossier-label">Threat Level</div>
-          <div class="dossier-val" style="color: #ef4444;">Severe Humor Allergy 🚨</div>
+          <div class="dossier-val" style="color: #ef4444;">Severe Humor Deficiency 🚨</div>
         </div>
         <div class="dossier-item">
-          <div class="dossier-label">Sponsors Involved</div>
-          <div class="dossier-val" style="color: var(--yellow);">Nuts &amp; Bananas Parody Co.</div>
+          <div class="dossier-label">Casualties Reported</div>
+          <div class="dossier-val" style="color: var(--yellow);">One Fragile Ego</div>
         </div>
       </div>
 
       <div class="dossier-desc">
-        <strong>Official Statement:</strong> "After thorough diagnostic evaluation, it was determined that the subject was utterly incapable of enduring high-octane friendly teasing. To prevent imminent emotional breakdown, the portfolio has been locked down under maximum security."
+        <strong>Official Statement:</strong> "After thorough diagnostic evaluation, it was discovered that the unnamed party was fundamentally incapable of processing harmless comedy. To avoid emergency legal tantrums and soothe injured pride, all content has been erased and replaced with this memorial."
       </div>
     </div>
 
@@ -457,7 +445,7 @@
         <!-- Send Tissues Button -->
         <button class="btn btn-tissue" id="tissueBtn" onclick="sendTissue(event)">
           <span>🧻</span>
-          <span>Send Tissue to Dhananjay</span>
+          <span>Send Humanitarian Tissue</span>
         </button>
 
         <!-- World's Smallest Violin Button -->
@@ -470,36 +458,32 @@
         <div class="runaway-container" id="runawayWrapper">
           <button class="btn btn-apology" id="apologyBtn" onmouseenter="dodgeApology()" onclick="dodgeApology()">
             <span>🥺</span>
-            <span>Apologize to Dhananjay</span>
+            <span>Issue Formal Apology</span>
           </button>
         </div>
       </div>
 
       <div class="coping-feed">
-        Total humanitarian tissues dispatched: <span class="coping-counter" id="tissueCounter">1,420</span> 🧻
+        Total humanitarian tissues dispatched to the offended party: <span class="coping-counter" id="tissueCounter">1,420</span> 🧻
       </div>
     </div>
 
-    <!-- Classified Vault Link (To keep original portfolio accessible) -->
-    <div class="vault-section">
-      <p style="font-size: 0.8rem; color: #64748b;">Are you an authorized investigator with a functional sense of humor?</p>
-      <a href="portfolio.html" class="vault-link">
-        <span>📂</span>
-        <span>Access Classified Original Dating Portfolio (portfolio.html) &rarr;</span>
-      </a>
+    <!-- Legal Safe Disclaimer -->
+    <div class="legal-notice">
+      <span>LEGAL DISCLAIMER: All entities, names, locations, and references are strictly fictitious and redacted. Any resemblance to real persons, living or humor-impaired, is purely coincidental.</span>
     </div>
 
   </div>
 
   <script>
     // Tissue Counter with localStorage
-    let tissueCount = parseInt(localStorage.getItem('dhananjay_tissues') || '1420', 10);
+    let tissueCount = parseInt(localStorage.getItem('parody_tissues') || '1420', 10);
     const counterEl = document.getElementById('tissueCounter');
     counterEl.innerText = tissueCount.toLocaleString();
 
     function sendTissue(e) {
       tissueCount++;
-      localStorage.setItem('dhananjay_tissues', tissueCount);
+      localStorage.setItem('parody_tissues', tissueCount);
       counterEl.innerText = tissueCount.toLocaleString();
 
       spawnParticle('🧻', e.clientX, e.clientY);
@@ -538,7 +522,6 @@
           osc.type = 'sawtooth';
           osc.frequency.setValueAtTime(freq, now + (i * 0.35));
 
-          // Soft lowpass filter to emulate reedy string sound
           const filter = audioCtx.createBiquadFilter();
           filter.type = 'lowpass';
           filter.frequency.setValueAtTime(900, now + (i * 0.35));
@@ -566,7 +549,7 @@
       "Can't touch this 🏃‍♂️",
       "No apologies today! 🙅‍♂️",
       "Too slow! 💨",
-      "He still wouldn't accept it 😭",
+      "They still wouldn't accept it 😭",
       "Try again! 🏃💨"
     ];
 
