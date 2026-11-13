@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="rainbow">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Dhananjay 💖 | The Official Dating Portfolio</title>
+  
+  <meta name="description" content="Official Dating Portfolio for Dhananjay. 18, Computer Science student, Chathannoor boy looking for serious romance.">
+  <meta name="theme-color" content="#FF007F">
+
+  <!-- Open Graph for sharing on WhatsApp / Instagram -->
+  <meta property="og:title" content="Dhananjay 💖 | Official Dating Portfolio">
+  <meta property="og:description" content="18 y/o Computer Science student, Chathannoor boy looking for serious romance (and someone to receive 50 reels a day).">
+  <meta property="og:image" content="assets/images/hero.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Preconnect to Fonts & CDNs for instant loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    (function() {
+      try {
+        localStorage.removeItem('dhananjay-theme');
+        var theme = localStorage.getItem('dhananjay-theme-v3') || 'rainbow';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme', 'rainbow');
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="rainbow">
+
+  <!-- Floating Pride Ambient Glows -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- Corporate / Parody Announcement Ticker Bar -->
+  <div class="announcement-bar">
+    <div class="ticker-wrap">
+      <div class="ticker-move" id="ticker-move-container">
+        <span>🏳️‍🌈 DHANANJAY VENTURES LLC • MAXIMUM GAY ENERGY EDITION</span>
+        <span>•</span>
+        <span>100% OPENLY GAY & SERIOUS MERGERS ONLY 💅</span>
+        <span>•</span>
+        <span>CSE '28 • CHATHANNOOR DAY SCHOLAR COMMUTER</span>
+        <span>•</span>
+        <span>ISO 9001 CERTIFIED SENSITIVE KING</span>
+        <span>•</span>
+        <span>APPLICATIONS OPEN ON INSTA: @dhananjay_403</span>
+        <span>•</span>
+        <span>DAILY REEL DISPATCH KPI: 52 REELS/DAY (NON-NEGOTIABLE)</span>
+        <span>•</span>
+        <span>🏳️‍🌈 DHANANJAY VENTURES LLC • MAXIMUM GAY ENERGY EDITION</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVERSIBLE PRADHANA PURUSHAN PLUM CAKE SCHEME PARODY BANNER -->
+  <div id="plumcake-scheme-banner" class="plumcake-scheme-banner" style="display: none;">
+    <div class="scheme-inner">
+      <div class="scheme-brand-block">
+        <span class="scheme-emblem">🏛️🍰</span>
+        <div class="scheme-titles">
+          <span class="scheme-gov-tag">ഭാരത സർക്കാർ & ചാത്തന്നൂർ പഞ്ചായത്ത് സ്പോൺസേർഡ് // DBT PORTAL 2026</span>
+          <strong class="scheme-main-title">പ്രധാന പുരുഷൻ Dhananjay ₹8,000 ക്രിസ്മസ് പ്ലം കേക്ക് പദ്ധതി</strong>
+        </div>
+      </div>
+      <div class="scheme-info-block">
+        <span class="scheme-pill">💰 ₹8,000 ക്യാഷ് ആനുകൂല്യം</span>
+        <span class="scheme-pill">🚹 Strictly For Males Only</span>
+        <span class="scheme-countdown">⏳ ഫണ്ട് തീരാൻ: <strong id="scheme-timer">14:52</strong></span>
+        <button class="scheme-cta-btn" onclick="openPlumCakeKYC()">KYC ചെയ്ത് ആനുകൂല്യം നേടൂ 💸</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile-Friendly Sticky Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <span class="rainbow-badge">💅 DJ</span>
+        <span class="logo-text">dhananjay<span class="dot">.</span>love</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#reels">Reels 📱</a>
+        <a href="#hobbies">Pillars</a>
+        <a href="#gallery">Photos</a>
+        <a href="#cardio">Cardio 🏃‍♂️</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#devnote">Homie Memo</a>
+        <a href="#quiz-modal" class="nav-btn-highlight" onclick="openQuizModal(); return false;">Quiz ✨</a>
+      </div>
+
+      <div class="nav-actions">
+        <!-- 3-Way Theme Switcher -->
+        <div class="theme-switcher-pill" title="Select Aesthetic Mode">
+          <button class="theme-toggle-btn active" data-theme="rainbow" title="MAX GAY / YAS QUEEN" aria-label="Max Gay Theme">
+            <span class="theme-icon">💅</span>
+            <span class="theme-label">MAX GAY</span>
+          </button>
+          <button class="theme-toggle-btn" data-theme="light" title="CLEAN MINIMAL" aria-label="Light Theme">
+            <span class="theme-icon">☀️</span>
+            <span class="theme-label">LIGHT</span>
+          </button>
+          <button class="theme-toggle-btn" data-theme="dark" title="GOTH GAY NOIR" aria-label="Dark Theme">
+            <span class="theme-icon">🌙</span>
+            <span class="theme-label">NOIR</span>
+          </button>
+        </div>
+
+        <button id="sparkle-btn" class="icon-btn" title="Sparkle Burst" aria-label="Sparkle Burst">✨</button>
+        <a href="https://www.instagram.com/dhananjay_403/" target="_blank" rel="noopener noreferrer" class="btn-primary-gradient nav-apply-btn">
+          <span>Apply ↗</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="about">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="status-pill rainbow-glow-border">
+            <span class="pulse-dot"></span>
+            <span>Series A Boyfriend Funding • Day Scholar Commuter • Openly Gay King</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hey handsome,<br>
+            I'm <span class="gradient-text rainbow-animated-text">Dhananjay</span>.
+          </h1>
+
+          <p class="hero-subtitle">
+            18-year-old <strong>Computer Science student</strong>, proud boy from 
+            <strong>Chathannoor, Kollam</strong>. Survives the daily KSRTC commute, makes terribly lame dad jokes, 
+            cries at emotional puppy videos, and looking for an exclusive long-term enterprise partner for late-night video calls.
+          </p>
+
+          <div class="hero-tags">
+            <button class="tag tag-interactive" onclick="handleTagClick('gay')">🏳️‍🌈 Openly Gay</button>
+            <button class="tag tag-interactive" onclick="handleTagClick('homo')">💅 100% Homosexual Vibe</button>
+            <button class="tag tag-interactive" onclick="handleTagClick('kollam')">🌴 Kollam Day Scholar</button>
+            <button class="tag tag-interactive" onclick="handleTagClick('cse')">💻 CSE '28 Student</button>
+            <button class="tag tag-interactive" onclick="handleTagClick('softie')">🥺 Sensitive King</button>
+            <button class="tag tag-interactive" onclick="handleTagClick('doom')">📱 Professional Doomscroller</button>
+            <button class="tag tag-interactive" onclick="handleTagClick('dodger')">🏃‍♂️ High-Speed Car Dodger</button>
+            <button class="tag tag-interactive" onclick="handleTagClick('sla')">❌ Anti-Situationship SLA</button>
+          </div>
+          <div class="hero-tag-toast" id="hero-tag-toast"></div>
+
+          <!-- Hero Action Group with the "Not Interested" Interactive Modal Button -->
+          <div class="hero-cta-group">
+            <a href="https://www.instagram.com/dhananjay_403/" target="_blank" rel="noopener noreferrer" class="btn-large-primary rainbow-shimmer-btn">
+              <i data-lucide="heart-handshake"></i>
+              <span>Apply for a Date (Insta DM)</span>
+            </a>
+            <button class="btn-large-secondary" onclick="openQuizModal()">
+              <i data-lucide="sparkles"></i>
+              <span>Take Compatibility Test</span>
+            </button>
+            <button class="btn-not-interested" onclick="openRejectionModal()">
+              <span>Not Interested 🙅‍♂️</span>
+            </button>
+          </div>
+
+          <div class="disclaimer-note">
+            <i data-lucide="alert-circle"></i>
+            <span>SLA Compliance Warning: 47-60 reels/day delivered to your Instagram inbox with zero contextual explanation.</span>
+          </div>
+        </div>
+
+        <div class="hero-media-wrapper">
+          <div class="card-3d-scene" id="hero-card-scene" onclick="handleHeroCardClick(event)">
+            <div class="card-3d-tilt-box" id="hero-card-tilt">
+              <div class="card-3d-flipper" id="hero-card-flipper">
+                <!-- FRONT FACE: POLAROID PHOTO -->
+                <div class="card-3d-face card-3d-front photo-card">
+                  <div class="card-holo-glare"></div>
+                  <div class="washi-tape tape-top"></div>
+                  <div class="image-frame">
+                    <img src="assets/images/hero.jpg" alt="Dhananjay - Main Profile Photo" id="main-hero-img" width="450" height="600" fetchpriority="high">
+                    <div class="photo-overlay-tag">
+                      <span>Verified Cutie (100% Real)</span>
+                    </div>
+                  </div>
+                  <div class="polaroid-caption">
+                    <p class="handwriting">"Thinking about deep anime plots and golden retrievers..."</p>
+                    <div class="heart-counter" onclick="incrementLikes(event)" title="Tap to invest affection">
+                      <span class="heart-icon">💖</span>
+                      <span id="like-count">1,403</span>
+                    </div>
+                  </div>
+
+                  <!-- 3D Interactive Flip Pill -->
+                  <div class="flip-hint-pill" onclick="toggleCardFlip(event)" title="Click to view secret troll specifications">
+                    <span class="flip-icon">🔄</span>
+                    <span>Tap for Suitor Specs (3D Flip)</span>
+                  </div>
+
+                  <div class="floating-sticker sticker-1">
+                    <span>CSE '28 🎓</span>
+                  </div>
+                  <div class="floating-sticker sticker-2">
+                    <span>Softie Alert 🥺</span>
+                  </div>
+                </div>
+
+                <!-- BACK FACE: MATRIMONIAL / TROLL TECHNICAL SPEC SHEET -->
+                <div class="card-3d-face card-3d-back">
+                  <div class="card-holo-glare"></div>
+                  <div class="washi-tape tape-top"></div>
+                  <div class="back-card-header">
+                    <div class="back-badge">
+                      <span>DHANANJAY-v1.0 // SPEC SHEET</span>
+                    </div>
+                    <h3>Enterprise Boyfriend Metrics</h3>
+                    <p class="back-subtitle">CSE Day Scholar • Chathannoor Edition</p>
+                  </div>
+
+                  <div class="back-specs-list">
+                    <div class="spec-row">
+                      <div class="spec-info">
+                        <span class="spec-name">🚌 KSRTC Commute Stamina</span>
+                        <span class="spec-val">99%</span>
+                      </div>
+                      <div class="spec-bar">
+                        <div class="spec-fill" style="width: 99%;"></div>
+                      </div>
+                    </div>
+
+                    <div class="spec-row">
+                      <div class="spec-info">
+                        <span class="spec-name">📱 2 AM Reel Dispatch</span>
+                        <span class="spec-val">52/day</span>
+                      </div>
+                      <div class="spec-bar">
+                        <div class="spec-fill fill-magenta" style="width: 100%;"></div>
+                      </div>
+                    </div>
+
+                    <div class="spec-row">
+                      <div class="spec-info">
+                        <span class="spec-name">💀 Dad Joke Toxicity</span>
+                        <span class="spec-val">Biohazard</span>
+                      </div>
+                      <div class="spec-bar">
+                        <div class="spec-fill fill-orange" style="width: 94%;"></div>
+                      </div>
+                    </div>
+
+                    <div class="spec-row">
+                      <div class="spec-info">
+                        <span class="spec-name">🥺 Emotional Softie Rating</span>
+                        <span class="spec-val">99% Soft</span>
+                      </div>
+                      <div class="spec-bar">
+                        <div class="spec-fill fill-blue" style="width: 99%;"></div>
+                      </div>
+                    </div>
+
+                    <div class="spec-row">
+                      <div class="spec-info">
+                        <span class="spec-name">🔥 Samsung 3 AM Phone Heat</span>
+                        <span class="spec-val">Nuclear</span>
+                      </div>
+                      <div class="spec-bar">
+                        <div class="spec-fill fill-purple" style="width: 98%;"></div>
+                      </div>
+                    </div>
+
+                    <div class="spec-row">
+                      <div class="spec-info">
+                        <span class="spec-name">❌ Situationship Tolerance</span>
+                        <span class="spec-val">0% (SLA Violation)</span>
+                      </div>
+                      <div class="spec-bar">
+                        <div class="spec-fill fill-zero" style="width: 0%;"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="back-footer-memo">
+                    <p>“ISO 9001 Homie Certified • Serious suitors only 💅”</p>
+                  </div>
+
+                  <button class="btn-flip-back" onclick="toggleCardFlip(event)">
+                    <span>↺ Flip Back to Photo</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS / DAY SCHOLAR METRICS -->
+    <section class="stats-strip">
+      <div class="container stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">🎂</div>
+          <div class="stat-info">
+            <h3>18 Years Old</h3>
+            <p>Q1 Romantic Valuation Peak</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🚌</div>
+          <div class="stat-info">
+            <h3>Day Scholar Commute</h3>
+            <p>Chathannoor Bus Logistics</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💍</div>
+          <div class="stat-info">
+            <h3>Serious Mergers Only</h3>
+            <p>0% tolerance for casual flings</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">😭</div>
+          <div class="stat-info">
+            <h3>99.9% Sensitivity</h3>
+            <p>Cries at anime and stray cats</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE REEL OBSESSION: CORPORATE KPI DASHBOARD -->
+    <section class="section reel-section" id="reels">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-badge">BANDWIDTH CONSUMPTION AUDIT</span>
+          <h2 class="section-title">The Reel Dispatch Operations Center 📱</h2>
+          <p class="section-desc">
+            Partnering with Dhananjay requires our engineering team to disclose high-volume Instagram notification traffic.
+          </p>
+        </div>
+
+        <div class="reel-breakdown-grid">
+          <!-- Live Reel Simulator Phone Mockup -->
+          <div class="reel-simulator-card">
+            <div class="phone-frame rainbow-phone-glow">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="insta-header">
+                  <div class="insta-user">
+                    <span class="insta-avatar">📸</span>
+                    <div>
+                      <strong>dhananjay_403</strong>
+                      <span class="online-indicator">Active 1m ago</span>
+                    </div>
+                  </div>
+                  <span class="insta-time">02:37 AM</span>
+                </div>
+
+                <div class="dm-reel-feed" id="dm-reel-feed">
+                  <div class="bubble-received">
+                    <span class="reel-icon">🎬</span>
+                    <div class="reel-snippet">
+                      <p><strong>Reel from @wholesome_softies:</strong> "Golden retriever waits 9 hours at bus stand for owner..."</p>
+                    </div>
+                  </div>
+                  <div class="bubble-received text-only">
+                    <p>I'M CRYING LOOK AT HIS TAIL 😭😭😭</p>
+                  </div>
+                  <div class="bubble-received">
+                    <span class="reel-icon">🎬</span>
+                    <div class="reel-snippet">
+                      <p><strong>Reel from @gym_aesthetic:</strong> "Slow-motion lumberjack in heavy rain drinking filter coffee..."</p>
+                    </div>
+                  </div>
+                  <div class="bubble-received text-only">
+                    <p>OKAY HELLO??? Respectfully??? 🧎‍♂️</p>
+                  </div>
+                </div>
+
+                <div class="simulator-actions">
+                  <button class="btn-reel-drop rainbow-shimmer-btn" onclick="simulateNewReel()">
+                    <i data-lucide="bell-ring"></i>
+                    <span>Simulate 2 AM Reel Bombardment!</span>
+                  </button>
+                  <span class="feed-stat" id="reel-counter-text">Reels dispatched tonight: 47</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel Analytics Breakdown -->
+          <div class="reel-stats-column">
+            <div class="chart-box">
+              <h3>Quarterly Reel Portfolio Allocation</h3>
+              <p class="chart-desc">Audited based on verified Instagram DM metadata:</p>
+
+              <div class="stat-bar-item">
+                <div class="bar-label">
+                  <span>Handsome Men Looking Mysterious in Turtlenecks</span>
+                  <strong>42%</strong>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 42%; background: #FF007F;"></div>
+                </div>
+              </div>
+
+              <div class="stat-bar-item">
+                <div class="bar-label">
+                  <span>Tragic Anime Edits with Sad Slowed Songs</span>
+                  <strong>28%</strong>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 28%; background: #8B3DFF;"></div>
+                </div>
+              </div>
+
+              <div class="stat-bar-item">
+                <div class="bar-label">
+                  <span>Golden Retrievers & Animals Doing Cute Stuff</span>
+                  <strong>18%</strong>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 18%; background: #FFD166;"></div>
+                </div>
+              </div>
+
+              <div class="stat-bar-item">
+                <div class="bar-label">
+                  <span>Unhinged Malayalam Troll Reels & Brainrot</span>
+                  <strong>12%</strong>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 12%; background: #06D6A0;"></div>
+                </div>
+              </div>
+
+              <div class="reel-rule-box">
+                <div class="rule-icon">⚠️</div>
+                <div class="rule-text">
+                  <strong>Partner Compliance Requirement:</strong> You do not need to watch all 50 reels. You simply need to reply <em>"lmfao so us"</em> to at least three of them.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE THREE PILLARS (HOBBIES) -->
+    <section class="section hobbies-section" id="hobbies">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-badge">STRATEGIC COMPETENCIES</span>
+          <h2 class="section-title">The Three Pillars of Dhananjay’s Lifestyle</h2>
+          <p class="section-desc">Enterprise-grade dedication to three very specific, highly refined modern arts.</p>
+        </div>
+
+        <div class="hobbies-grid">
+          <!-- Pillar 1 -->
+          <div class="hobby-card featured-pillar rainbow-card-glow">
+            <div class="featured-ribbon">CRITICAL KPI</div>
+            <div class="hobby-badge badge-reels">Competency 01</div>
+            <div class="hobby-icon-wrap">
+              <i data-lucide="film"></i>
+            </div>
+            <h3>Olympic-Level Reel Scrolling</h3>
+            <p>
+              His thumb has more mileage than his bus pass. Scrolls endlessly while standing on the bus footboard, 
+              during lunch break, and deep into 3:00 AM. If you don't answer within 10 minutes, he assumes you perished.
+            </p>
+            <div class="hobby-stat">
+              <span>Daily Screen Time:</span>
+              <strong>"Battery at 4%" 📱🔋</strong>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="hobby-card">
+            <div class="hobby-badge badge-anime">Competency 02</div>
+            <div class="hobby-icon-wrap">
+              <i data-lucide="tv"></i>
+            </div>
+            <h3>Anime Binge Specialist</h3>
+            <p>
+              From epic battle shonen to heart-wrenching romance. Yes, he has shed genuine tears over 2D men who don't exist. 
+              Ideal date: wrapping in a fleece blanket and watching 9 consecutive episodes with snacks.
+            </p>
+            <div class="hobby-stat">
+              <span>Comfort Genre:</span>
+              <strong>Emotional damage & romance ✨</strong>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="hobby-card">
+            <div class="hobby-badge badge-call">Competency 03</div>
+            <div class="hobby-icon-wrap">
+              <i data-lucide="video"></i>
+            </div>
+            <h3>Late-Night Video Calling Men</h3>
+            <p>
+              Earbuds in? Warm bedside lamp on? Perfect camera angle locked? He's ready for the 3-hour marathon video call on his 
+              Samsung where you debate philosophy, review college gossip, and stare at each other until somebody falls asleep.
+            </p>
+            <div class="hobby-stat">
+              <span>Average Call Duration:</span>
+              <strong>Until phone overheats 🔥</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE LAME JOKE GENERATOR -->
+    <section class="section jokes-section">
+      <div class="container text-center">
+        <span class="sub-badge">HUMOR COMPLIANCE TEST</span>
+        <h2 class="section-title">Dhananjay's Lame Dad Joke Dispenser</h2>
+        <p class="section-desc">He cracks dad jokes and terrible puns daily. Can your nervous system survive this?</p>
+
+        <div class="joke-card-wrapper">
+          <div class="joke-box" id="joke-box">
+            <p class="joke-setup" id="joke-setup">"Why does Dhananjay always take the window seat on the Chathannoor KSRTC bus?"</p>
+            <p class="joke-punchline" id="joke-punchline">"So he can gaze out into the rain like the tragic main character of a Tamil romance movie! (True story) 🌧️🚌"</p>
+          </div>
+          <div class="joke-buttons">
+            <button class="btn-primary-gradient rainbow-shimmer-btn" onclick="generateJoke()">
+              <i data-lucide="refresh-cw"></i>
+              <span>Generate Another Pun</span>
+            </button>
+            <button class="btn-secondary" onclick="laughReaction()">
+              <span id="laugh-icon">😂</span>
+              <span id="laugh-text">Pity Laugh (+1)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTO GALLERY -->
+    <section class="section gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-badge">DUE DILIGENCE EVIDENCE</span>
+          <h2 class="section-title">Verified Visual Assets of Boyfriend Material</h2>
+          <p class="section-desc">Photographic proofs that Dhananjay passes all aesthetic requirements.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Photo 1: Hero -->
+          <div class="gallery-item item-hero">
+            <img src="assets/images/hero.jpg" alt="Dhananjay Portrait" loading="lazy" width="450" height="560">
+            <div class="gallery-caption">
+              <h4>The Golden Hour Smirk</h4>
+              <p>Ready to meet your parents and charm everyone with polite manners.</p>
+            </div>
+          </div>
+
+          <!-- Photo 2: Activity -->
+          <div class="gallery-item item-activity">
+            <img src="assets/images/activity_1.jpg" alt="Dhananjay in his element" loading="lazy" width="450" height="560">
+            <div class="gallery-caption">
+              <h4>In His Natural Element</h4>
+              <p>Productive boy energy before the evening doomscrolling begins.</p>
+            </div>
+          </div>
+
+          <!-- Photo 3: Funny -->
+          <div class="gallery-item item-funny">
+            <img src="assets/images/funny.jpg" alt="Dhananjay Candid funny" loading="lazy" width="450" height="560">
+            <div class="gallery-caption">
+              <h4>Unfiltered Chaos</h4>
+              <p>What you actually get on video call at 1:30 in the morning.</p>
+            </div>
+          </div>
+
+          <!-- Photo 4: Pet -->
+          <div class="gallery-item item-pet">
+            <img src="assets/images/pet.jpg" alt="Dhananjay with Pet" loading="lazy" width="450" height="560">
+            <div class="gallery-caption">
+              <h4>The Gentle Soul</h4>
+              <p>Softie certified. Animals instantly trust his comforting aura.</p>
+            </div>
+          </div>
+
+          <!-- Photo 5: Social -->
+          <div class="gallery-item item-social">
+            <img src="assets/images/social.jpg" alt="Dhananjay with Friends" loading="lazy" width="450" height="560">
+            <div class="gallery-caption">
+              <h4>Social Proof</h4>
+              <p>Fun to be around at college gatherings and canteen tea stall hangouts.</p>
+            </div>
+          </div>
+
+          <!-- Photo 6: Travel -->
+          <div class="gallery-item item-travel">
+            <img src="assets/images/travel.jpg" alt="Dhananjay Travel" loading="lazy" width="450" height="560">
+            <div class="gallery-caption">
+              <h4>Wanderlust Ready</h4>
+              <p>Will gladly hold hands with you anywhere across Kerala and beyond.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED VIDEO EXHIBIT: RUNNING FROM A CAR -->
+    <section class="section video-section" id="cardio">
+      <div class="container">
+        <div class="video-spotlight-box rainbow-card-glow">
+          <div class="video-meta-side">
+            <span class="video-alert-badge">
+              <span class="live-dot"></span>
+              <span>VERIFIED ATHLETIC CAPABILITY • 1080P PROOF</span>
+            </span>
+            <h2 class="video-section-title">Exhibit G: Raw Survival Cardio (Running From a Car) 🚗🏃‍♂️💨</h2>
+            <p class="video-description">
+              Other guys will tell you about their gym split. Dhananjay demonstrates <strong>unscripted, adrenaline-fueled, vehicular evasion</strong> in broad daylight.
+            </p>
+            <p class="video-subtext">
+              Captured live on camera: sprinting for dear life on Kerala asphalt. Notice the sprint mechanics, the fear in his stride, and the 100% survival rate. If he can outrun a four-wheeler, he will never let you down.
+            </p>
+            <div class="video-metrics-grid">
+              <div class="v-metric">
+                <strong>28 km/h</strong>
+                <span>Top Evasion Speed</span>
+              </div>
+              <div class="v-metric">
+                <strong>100%</strong>
+                <span>Survival Index</span>
+              </div>
+              <div class="v-metric">
+                <strong>0 Seconds</strong>
+                <span>Hesitation Time</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-player-side">
+            <div class="video-wrapper">
+              <video src="assets/images/running_from_car.mp4" autoplay loop muted playsinline controls preload="metadata" class="dhananjay-action-video"></video>
+              <div class="video-status-tag">
+                <span>🔴 Unedited Action Footage</span>
+              </div>
+            </div>
+            <p class="video-footnote">
+              *Footage audited by Department of Athletics & Road Safety. Dhananjay was not harmed during the filming of this cardio showcase.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS / TESTIMONIALS -->
+    <section class="section reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-badge">STAKEHOLDER TESTIMONIALS</span>
+          <h2 class="section-title">What the Campus & Commute is Saying</h2>
+          <p class="section-desc">Independent, unbribed reviews from people who endure his daily presence.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <!-- Review 1: Fellow CSE Lab Benchmate -->
+          <div class="review-card">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <p class="review-text">
+              “Bro cries for 15 minutes when a C++ pointer error shows up, then immediately sends me 12 Instagram reels about a golden retriever being adopted. 10/10 lab partner, unmatched emotional loyalty.”
+            </p>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">💻</div>
+              <div>
+                <h5>CSE Lab Benchmate</h5>
+                <span>Survivor of 2:30 AM Debugging Calls</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2: Day Scholar KSRTC Bus Conductor -->
+          <div class="review-card">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <p class="review-text">
+              “Always boards the morning fast passenger at Chathannoor. Stands by the footboard holding the overhead 
+              bar with one hand while furiously scrolling reels with the other like a hero in a Gautham Menon movie. 
+              Very sweet boy, never creates trouble!”
+            </p>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">🚌</div>
+              <div>
+                <h5>KSRTC Fast Passenger Conductor</h5>
+                <span>Kollam Fast Passenger Route Regular</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3: Canteen Chechi -->
+          <div class="review-card">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <p class="review-text">
+              “Always comes with a polite smile, orders hot chai and pazhampori, and sits giggling at his phone by himself. 
+              A very well-mannered kutty. Any handsome boy would be blessed to have him!”
+            </p>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">☕</div>
+              <div>
+                <h5>College Canteen Chechi</h5>
+                <span>Campus Culinary Legend</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 4: Instagram Algorithm -->
+          <div class="review-card">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <p class="review-text">
+              “His explore page consists strictly of men in turtlenecks, Gojo Satoru edits, and emotional dogs. 
+              His share sheet has been running at 140% server capacity since 2023.”
+            </p>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">🤖</div>
+              <div>
+                <h5>Meta / Instagram Algorithm</h5>
+                <span>Data privacy violator & fan</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GREEN FLAGS & DEALBREAKERS -->
+    <section class="section flags-section">
+      <div class="container">
+        <div class="flags-grid">
+          <div class="flag-column green-column">
+            <div class="flag-header">
+              <i data-lucide="check-circle" class="flag-icon green"></i>
+              <h3>Certified Green Flags</h3>
+            </div>
+            <ul class="flag-list">
+              <li><span>💚</span> Openly gay & proud of his identity.</li>
+              <li><span>💚</span> Emotionally honest — if something hurts, he communicates directly.</li>
+              <li><span>💚</span> Serious relationship mindset; 0% interest in playing games.</li>
+              <li><span>💚</span> Will send you the best curated memes before anyone else on the internet sees them.</li>
+              <li><span>💚</span> CSE student: will write code or debug your college assignments.</li>
+              <li><span>💚</span> Cardio certified: can literally sprint away from hazardous vehicles.</li>
+            </ul>
+          </div>
+
+          <div class="flag-column dealbreaker-column">
+            <div class="flag-header">
+              <i data-lucide="alert-triangle" class="flag-icon red"></i>
+              <h3>Dealbreakers (Hard Passes)</h3>
+            </div>
+            <ul class="flag-list">
+              <li><span>🚩</span> "Let's see where it goes" (Sir, this is a highway, not a mystery road).</li>
+              <li><span>🚩</span> Ghosting instead of communicating like a mature adult.</li>
+              <li><span>🚩</span> Making fun of his emotional sensitivity or his anime watchlist.</li>
+              <li><span>🚩</span> Leaving his reels unreacted for 24 hours straight.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEV NOTE (CORPORATE PARODY + HOMIE BANTER + TINY LEGAL DISCLAIMER) -->
+    <section class="section dev-note-section" id="devnote">
+      <div class="container">
+        <div class="dev-note-card rainbow-card-glow">
+          <div class="dev-note-badge">
+            <span>CONFIDENTIAL // EXECUTIVE HOMIE MEMORANDUM // REF: ABHI-HQ-2026-X 💼</span>
+          </div>
+          <h2 class="dev-note-title">Internal Memo: The Dhananjay Acquisition &amp; Romance IPO</h2>
+          
+          <div class="dev-note-body">
+            <!-- CORPORATE METADATA BOX -->
+            <div class="memo-meta-box">
+              <div class="memo-meta-row">
+                <span class="memo-meta-label">TO:</span>
+                <span class="memo-meta-value">Prospective Suitors, Romance Venture Capitalists &amp; Instagram Mutuals</span>
+              </div>
+              <div class="memo-meta-row">
+                <span class="memo-meta-label">FROM:</span>
+                <span class="memo-meta-value"><strong>Abhi</strong> | Founder, Chief Chaos Officer &amp; Lead Matchmaking Architect</span>
+              </div>
+              <div class="memo-meta-row">
+                <span class="memo-meta-label">DATE:</span>
+                <span class="memo-meta-value">Q1 FY26 (Romance Valuation Sprint)</span>
+              </div>
+              <div class="memo-meta-row">
+                <span class="memo-meta-label">SUBJECT:</span>
+                <span class="memo-meta-value">Comprehensive Technical Audit, Thermal Stress Test &amp; Valuation for <code>DHANANJAY-v2.0</code></span>
+              </div>
+            </div>
+
+            <!-- EXECUTIVE SUMMARY -->
+            <p>
+              Alright, let's cut through the Silicon Valley corporate jargon. I'm <strong>Abhi</strong>, and I single-handedly 
+              architected this full-stack portal because my homie Dhananjay was suffering from a catastrophic market failure. 
+              His romantic valuation was severely depressed due to zero personal PR, an aggressive habit of dispatching 47 unhinged 
+              Instagram reels every 30 minutes, and zero survival instinct in the modern dating pool. As his lead engineer, 
+              I simply refused to let prime Chathannoor talent trade at an emotional discount.
+            </p>
+
+            <!-- AUDIT FINDINGS CALLOUT -->
+            <div class="memo-audit-card">
+              <div class="memo-audit-title">
+                <span>📋</span>
+                <span>INDEPENDENT TECHNICAL AUDIT &amp; BIOSPEC WARNINGS</span>
+              </div>
+              <ul class="memo-audit-list">
+                <li>
+                  <span>🔥</span>
+                  <div><strong>Thermal Overheating:</strong> Subject's Android phone (a battle-tested Samsung) operates at the core temperature of a Kerala midday sun during 3 AM video calls. Fire extinguishers recommended.</div>
+                </li>
+                <li>
+                  <span>🚌</span>
+                  <div><strong>KSRTC Endurance Rating:</strong> Daily Chathannoor-to-college bus pilgrimage survivor. Demonstrates military-grade emotional durability and structural patience.</div>
+                </li>
+                <li>
+                  <span>☣️</span>
+                  <div><strong>Acoustic Biohazard:</strong> His dad jokes violate multiple WHO acoustic pollution guidelines and local safety thresholds.</div>
+                </li>
+                <li>
+                  <span>🥺</span>
+                  <div><strong>Emotional Buffer Overrun:</strong> Subject will cry if an anime protagonist's pet gets mildly injured in episode 4. Tissues and warm blankets must be kept on standby at all times.</div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- SLA & DELIVERABLES -->
+            <p>
+              <strong>SLA &amp; Core Deliverables:</strong> Trolling aside, here is the unvarnished quarterly report: Dhananjay brings 
+              a certified <strong>99.9% loyalty SLA</strong>, zero-ghosting latency, and the warmest, most genuine heart in the district. 
+              If you are a kind, genuine guy looking for a ride-or-die boyfriend who will laugh at your worst jokes, watch anime till sunrise, 
+              and stand by you through thick and thin, this is an immediate <strong>STRONG BUY</strong>. Slide into his Instagram DMs before 
+              our acquisition window closes.
+            </p>
+
+            <!-- ENFORCEMENT & LEGAL RETALIATION -->
+            <p>
+              <strong>Hostile Takeover &amp; Retaliation Protocol:</strong> Let this serve as an official regulatory notice. If you approach 
+              this acquisition with malicious intent, play toxic mind games, or leave his heartfelt messages on delivered for 24+ hours, 
+              our Legal &amp; Cyber Operations Division (literally just me, <strong>Abhi</strong>, with terminal access) will issue an emergency 
+              injunction in the Kollam High Court, DDoS your Spotify Wrapped, and report your WhatsApp to your parents.
+            </p>
+
+            <!-- SIGNATURE & SEAL -->
+            <div class="dev-signature">
+              <div class="sig-container">
+                <div>
+                  <p class="handwriting-sig">— Abhi 💻💅</p>
+                  <p class="sig-title">
+                    <strong>Abhi</strong> | Founder, Lead Matchmaking Architect &amp; Chief Chaos Officer<br>
+                    <span>Department of Homie Logistics &amp; Cyber Retaliation</span>
+                  </p>
+                </div>
+                <div class="sig-seal">
+                  <span>🛡️</span>
+                  <span>VERIFIED BY HOMIE HQ</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- TINY LEGAL DISCLAIMER DISPROVING EVERYTHING & STATUTORY MALAYALAM NOTICE -->
+            <div class="fine-print-disclaimer">
+              <small>
+                *Legal Notice &amp; HR Disclaimer: The Department of Engineering formally declares that Dhananjay is definitely not gay... probably... I mean, we hope not... okay look, don't quote me on this, this entire platform is an elaborately peer-reviewed, multi-million dollar homie shitpost masterminded by Abhi. കൂടാതെ, ഈ സൈറ്റിലുള്ള കഥാപാത്രങ്ങളും പരാമർശങ്ങളും തികച്ചും സാങ്കൽപ്പികം മാത്രമാണ്. ജീവിച്ചിരിക്കുന്നവരോ മരിച്ചവരോ ആയി എന്തെങ്കിലും സാമ്യം തോന്നുന്നുണ്ടെങ്കിൽ അത് തികച്ചും യാദൃച്ഛികം മാത്രം.
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION / APPLY SECTION -->
+    <section class="section cta-section" id="apply">
+      <div class="container">
+        <div class="cta-banner rainbow-shimmer-bg">
+          <div class="cta-inner">
+            <span class="sub-badge-light">FINAL ACQUISITION WINDOW</span>
+            <h2>Applications Are Now Open</h2>
+            <p>
+              Don't let this Chathannoor catch slip away. Slide into his Instagram DMs with a witty intro, 
+              your favorite anime, or your funniest pun.
+            </p>
+            <div class="cta-buttons">
+              <a href="https://www.instagram.com/dhananjay_403/" target="_blank" rel="noopener noreferrer" class="btn-cta-instagram">
+                <i data-lucide="instagram"></i>
+                <span>DM @dhananjay_403 on Instagram</span>
+              </a>
+              <button class="btn-cta-quiz" onclick="openQuizModal()">
+                <i data-lucide="help-circle"></i>
+                <span>Calculate Compatibility First</span>
+              </button>
+              <button class="btn-cta-offer" onclick="openOfferLetterModal()">
+                <i data-lucide="file-check"></i>
+                <span>Draft Boyfriend Offer Letter 📜</span>
+              </button>
+              <button class="btn-not-interested btn-cta-not-interested" onclick="openRejectionModal()">
+                <span>Not Interested 🙅‍♂️</span>
+              </button>
+            </div>
+            <p class="cta-footnote">
+              🔒 Serious inquiries only. Respectful DMs get answered within minutes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER & CREDITS -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <div class="footer-logo">dhananjay.love 💖</div>
+        <p class="footer-credits">Curated for Dhananjay (CSE '28 • Day Scholar Legend) • Masterminded & Directed by <strong>Abhi</strong>.</p>
+        <p class="footer-copyright">© 2026 Dhananjay Industries. All rights reserved. No Dhananjays were harmed during the preparation of this shitpost.</p>
+        <div class="footer-visitor-pill" title="Verified Traffic Monitor">
+          <span class="visitor-pulse-dot"></span>
+          <span>You are visitor #<strong id="visitor-count">1</strong> to this portal 💅</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/dhananjay_403/" target="_blank" rel="noopener noreferrer">Instagram (@dhananjay_403)</a>
+        <a href="#about">Back to Top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE REJECTION SURVEY MODAL -->
+  <div class="modal-backdrop" id="rejection-modal" onclick="closeRejectionModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeRejectionModal()" aria-label="Close">✕</button>
+
+      <!-- Step 1: Gender Selection -->
+      <div id="rejection-step-select">
+        <div class="modal-header">
+          <span class="badge-mini">EXIT SURVEY COMPLIANCE</span>
+          <h3>Before You Reject Dhananjay...</h3>
+          <p>Our quality assurance department requires you to specify your demographic profile:</p>
+        </div>
+        <div class="rejection-options">
+          <button class="rejection-choice-btn girl-btn" onclick="handleRejection('girl')">
+            <span class="choice-icon">👧</span>
+            <div class="choice-text">
+              <strong>I am a Girl / Female</strong>
+              <span>Looking for straight romance</span>
+            </div>
+          </button>
+
+          <button class="rejection-choice-btn boy-btn" onclick="handleRejection('boy')">
+            <span class="choice-icon">👦</span>
+            <div class="choice-text">
+              <strong>I am a Guy / Male</strong>
+              <span>Rejecting Dhananjay's gay love</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2A: Girl Outcome (Nonchalant) -->
+      <div id="rejection-outcome-girl" class="hidden text-center rejection-outcome-box">
+        <div class="outcome-emoji">💅</div>
+        <h3>Oh. Okay, literally do not care.</h3>
+        <p class="outcome-desc">
+          Dhananjay only likes men anyway. Your rejection has <strong>0% statistical impact</strong> on his stock price. 
+          In fact, our backend firewall pre-rejected you before this page even loaded.
+        </p>
+        <p class="outcome-sub">Have a wonderful day queen, go find yourself a nice straight engineer! 💅✨</p>
+        <div class="rejection-actions">
+          <button class="btn-primary-gradient w-full" onclick="closeRejectionModal()">
+            <span>Dismiss & Have a Nice Day</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2B: Boy Outcome (OVER-THE-TOP DRAMA & CRIME SCENE) -->
+      <div id="rejection-outcome-boy" class="hidden text-center rejection-outcome-box">
+        <div class="outcome-emoji drama-pulse">🚨💔😭</div>
+        <h3 class="drama-headline">A MAN JUST PRESSED REJECT?!</h3>
+        <p class="outcome-desc">
+          <strong>CODE RED! CODE RED!</strong> Dhananjay has literally collapsed onto the floor of the Chathannoor KSRTC bus stand! 
+          The entire CSE department has declared a state of mourning. His earbuds have fallen out of his ears! 
+        </p>
+        <p class="outcome-sub">
+          HOW COULD YOU DO THIS TO OUR SENSITIVE CHATHANNOOR KING?! He was literally ready to send you 50 reels tonight! 
+          47 unhinged anime edits are now being dispatched to your IP address as retribution.
+        </p>
+        <div class="rejection-actions">
+          <button class="btn-primary-gradient w-full" onclick="takeItBack()">
+            <span>I'M SORRY! I TAKE IT BACK! (Take Quiz) 💍</span>
+          </button>
+          <button class="btn-secondary w-full" onclick="confirmHeartbreak()">
+            <span>Confirm Heartbreak & Make Him Cry 🌧️</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2D: Confirmed Heartbreak Fallout -->
+      <div id="rejection-outcome-heartbroken" class="hidden text-center rejection-outcome-box">
+        <div class="outcome-emoji">⛈️🧎‍♂️</div>
+        <h3>SYSTEM DAMAGE REPORT // STATUS: COMPROMISED</h3>
+        <p class="outcome-desc">
+          Dhananjay has taken <strong>40 emotional damage points</strong>. He is currently gazing out of the Chathannoor KSRTC bus window in heavy rain like the tragic protagonist of a Tamil romance movie.
+        </p>
+        <p class="outcome-sub">
+          Internal mark deduction averted, but Spotify Wrapped for 2026 is officially ruined with sad indie acoustic songs.
+        </p>
+        <div class="rejection-actions">
+          <button class="btn-primary-gradient w-full" onclick="takeItBack()">
+            <span>🥺 I Regret Everything! Let Me Take The Quiz!</span>
+          </button>
+          <button class="btn-secondary w-full" onclick="closeRejectionModal()">
+            <span>Accept Karma & Leave Quietly</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPATIBILITY QUIZ MODAL (7 QUESTIONS WITH 4 EXTREME OPTIONS EACH) -->
+  <div class="modal-backdrop" id="quiz-modal" onclick="closeQuizModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeQuizModal()" aria-label="Close Quiz">✕</button>
+
+      <div class="modal-header">
+        <div class="quiz-progress-wrap">
+          <span class="badge-mini" id="quiz-progress-badge">QUESTION 1 OF 7</span>
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="quiz-progress-fill" style="width: 14%;"></div>
+          </div>
+        </div>
+        <h3 id="quiz-title">Are You Compatible with Dhananjay?</h3>
+        <p id="quiz-subtitle">Answer truthfully. Point deductions apply for emotionally unavailable behavior!</p>
+      </div>
+
+      <div class="modal-body" id="quiz-body">
+        <!-- Question 1: Reel Volume -->
+        <div class="quiz-step" data-step="1">
+          <label class="quiz-question">1. It is 2:15 AM. Dhananjay sends you 23 Instagram reels with zero context. You:</label>
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="answerQuiz(1, 10)">A) React "LMAO" to every single one and send 20 back immediately</button>
+            <button class="quiz-option" onclick="answerQuiz(1, 5)">B) Heart-react and watch them tomorrow morning with chai</button>
+            <button class="quiz-option" onclick="answerQuiz(1, -10)">C) Mute him and reply "seen" after 14 hours</button>
+            <button class="quiz-option" onclick="answerQuiz(1, -20)">D) Text "Why are you sending me reels? Get a job"</button>
+          </div>
+        </div>
+
+        <!-- Question 2: Emotional Anime Sensitivity -->
+        <div class="quiz-step hidden" data-step="2">
+          <label class="quiz-question">2. Dhananjay is sobbing because a fictional anime character sacrificed themselves. You:</label>
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="answerQuiz(2, 10)">A) Wrap him in a blanket, bring snacks, and shed tears together</button>
+            <button class="quiz-option" onclick="answerQuiz(2, 5)">B) Softly reassure him and make him laugh with funny faces</button>
+            <button class="quiz-option" onclick="answerQuiz(2, -10)">C) Roll your eyes and say "Bro it's literally just a cartoon"</button>
+            <button class="quiz-option" onclick="answerQuiz(2, -25)">D) Laugh in his face and immediately spoil the series finale</button>
+          </div>
+        </div>
+
+        <!-- Question 3: Dating Goal -->
+        <div class="quiz-step hidden" data-step="3">
+          <label class="quiz-question">3. What is your actual relationship stance?</label>
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="answerQuiz(3, 10)">A) Serious, loyal, emotionally committed lifelong romance</button>
+            <button class="quiz-option" onclick="answerQuiz(3, 6)">B) Looking for my best friend, partner & adventure buddy</button>
+            <button class="quiz-option" onclick="answerQuiz(3, -15)">C) "Let's keep things casual, no labels, don't catch feelings"</button>
+            <button class="quiz-option" onclick="answerQuiz(3, -30)">D) "I'm emotionally unavailable and actively texting 4 other people"</button>
+          </div>
+        </div>
+
+        <!-- Question 4: Texting Latency & Response SLA -->
+        <div class="quiz-step hidden" data-step="4">
+          <label class="quiz-question">4. What is your texting latency and communication policy?</label>
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="answerQuiz(4, 10)">A) Reply within 60 seconds with heart emojis and affectionate voice notes</button>
+            <button class="quiz-option" onclick="answerQuiz(4, 7)">B) Steady, thoughtful replies between work and college classes</button>
+            <button class="quiz-option" onclick="answerQuiz(4, -10)">C) Leaving messages on 'Delivered' for 18 hours while posting IG stories</button>
+            <button class="quiz-option" onclick="answerQuiz(4, -25)">D) "I will ghost you for 3 days to establish psychological dominance"</button>
+          </div>
+        </div>
+
+        <!-- Question 5: Commute & Weather -->
+        <div class="quiz-step hidden" data-step="5">
+          <label class="quiz-question">5. Ideal Kerala monsoon rainy day date with Dhananjay:</label>
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="answerQuiz(5, 10)">A) Sharing wired earphones on the KSRTC bus, watching rain hit the window</button>
+            <button class="quiz-option" onclick="answerQuiz(5, 6)">B) Hot canteen chai and pazhampori talking about our dreams</button>
+            <button class="quiz-option" onclick="answerQuiz(5, -8)">C) Sitting in awkward silence scrolling separate TikTok feeds</button>
+            <button class="quiz-option" onclick="answerQuiz(5, -15)">D) Complaining about humidity and demanding to leave immediately</button>
+          </div>
+        </div>
+
+        <!-- Question 6: Dad Jokes Endurance -->
+        <div class="quiz-step hidden" data-step="6">
+          <label class="quiz-question">6. Dhananjay cracks a painfully terrible dad joke that only he laughs at. You:</label>
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="answerQuiz(6, 10)">A) Laugh hysterically because his genuine giggles are the cutest thing on earth</button>
+            <button class="quiz-option" onclick="answerQuiz(6, 6)">B) Roast him affectionately and fire back an even lamer pun</button>
+            <button class="quiz-option" onclick="answerQuiz(6, -10)">C) Give him a deadpan, soul-crushing silence</button>
+            <button class="quiz-option" onclick="answerQuiz(6, -20)">D) Tell him his sense of humor is an embarrassment to the CSE branch</button>
+          </div>
+        </div>
+
+        <!-- Question 7: Video Call Stamina -->
+        <div class="quiz-step hidden" data-step="7">
+          <label class="quiz-question">7. It's 1:45 AM on video call. Both your phones are warm. What happens next?</label>
+          <div class="quiz-options">
+            <button class="quiz-option" onclick="answerQuiz(7, 10)">A) Plug in chargers and continue whispering sweet nothings until sunrise</button>
+            <button class="quiz-option" onclick="answerQuiz(7, 6)">B) Loving goodnight voice notes with heart emojis</button>
+            <button class="quiz-option" onclick="answerQuiz(7, -8)">C) Fall asleep on call and wake him up with aggressive snoring</button>
+            <button class="quiz-option" onclick="answerQuiz(7, -25)">D) Abruptly hang up without warning and turn off read receipts</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Quiz Result Screen -->
+        <div class="quiz-result hidden" id="quiz-result">
+          <div class="result-score-circle" id="result-score-circle">
+            <span id="score-percentage">--%</span>
+          </div>
+          <h4 id="result-headline">CALCULATING MATCH RATE...</h4>
+          <p id="result-description">
+            Evaluating your responses through our proprietary Chathannoor Romantic Algorithm...
+          </p>
+
+          <!-- REVERSIBLE PRADHANA PURUSHAN PLUM CAKE APPROVAL (Triggered when in scheme mode) -->
+          <div class="plumcake-approval-box hidden" id="plumcake-approval-box">
+            <div class="approval-header-badge">
+              <span class="dbt-pill">🏛️ DBT STATUS: ELIGIBLE</span>
+              <span class="dbt-amount">₹8,000.00</span>
+            </div>
+            <h4>അഭിനന്ദനങ്ങൾ! പ്ലം കേക്ക് ഗ്രാന്റ് അനുവദിച്ചിരിക്കുന്നു 🍰</h4>
+            <p>പക്ഷേ... ക്യാഷ് ബാങ്ക് അക്കൗണ്ടിലേക്ക് അയക്കുന്നതിന് മുൻപ് അവസാനത്തെ ബയോമെട്രിക് വെരിഫിക്കേഷൻ പൂർത്തിയാക്കുക!</p>
+
+            <!-- MANDATORY BIOMETRIC KISS VERIFICATION STAGE -->
+            <div class="kiss-verification-box" id="kiss-verification-box">
+              <div class="kiss-avatar-container" id="kiss-avatar-wrap">
+                <div class="kiss-avatar-ring">
+                  <img src="assets/images/hero.jpg" alt="Dhananjay" class="kiss-avatar-img" id="kiss-avatar-img">
+                  <div class="kiss-blush-left"></div>
+                  <div class="kiss-blush-right"></div>
+                  <div class="kiss-stamp-mark" id="kiss-stamp-mark">💋</div>
+                </div>
+              </div>
+              
+              <div class="kiss-instruction">
+                <span class="kiss-step-badge">🔒 MANDATORY BIOMETRIC CONSENT</span>
+                <h5 id="kiss-title-text">Give Dhananjay a Kiss to Unlock ₹8,000 💋</h5>
+                <p id="kiss-sub-text">"ധനഞ്ജയ്‌ക്ക് ഒരു സ്വീറ്റ് ഉമ്മ (Kiss) കൊടുത്താൽ മാത്രമേ ₹8,000 അൺലോക്ക് ആവൂ!"</p>
+              </div>
+
+              <!-- Interactive Kiss Button -->
+              <button type="button" class="btn-kiss-dhananjay" id="btn-kiss-dhananjay" onclick="giveDhananjayKiss()">
+                <span class="kiss-btn-icon">💋</span>
+                <span class="kiss-btn-text">Give Dhananjay a Kiss (ഉമ്മ കൊടുക്കൂ) 💋</span>
+              </button>
+
+              <div class="kiss-unlocked-banner hidden" id="kiss-unlocked-banner">
+                <span>🎉 ഉമ്മ സ്വീകരിച്ചു! Biometric Kiss 100% Verified 💖</span>
+              </div>
+            </div>
+
+            <button class="btn-claim-upi-instant hidden" id="btn-claim-upi-instant" onclick="triggerUPIClaimBuzzer()">
+              <span>💸 Claim ₹8,000 via Instant UPI</span>
+            </button>
+            <div id="upi-processing-spinner" class="upi-processing-spinner hidden">
+              <div class="bank-loader"></div>
+              <p id="upi-status-text">റിസർവ് ബാങ്ക് സെർവറുമായി ബന്ധപ്പെടുന്നു...</p>
+            </div>
+            <div id="upi-failed-card" class="upi-failed-card hidden">
+              <div class="fail-badge">🚨 TRANSACTION REJECTED (Error #403-GAY)</div>
+              <h3>കാരണം: അമിതമായ Heterosexuality സംശയിക്കപ്പെടുന്നു! 😹</h3>
+              <p class="fail-malayalam">
+                മച്ചാനേ... ₹8,000 ക്യാഷ് തരാൻ Dhananjay എന്നാ RBI Governor ആണോ?! 😭<br>
+                ഇത് എന്റെ ചങ്ങാതിമാർ ഒപ്പിച്ച WhatsApp ട്രോൾ പ്രാങ്ക് ആണ്!
+              </p>
+              <div class="fail-cake-offer">
+                <p>🍰 <strong>എന്നാലും വിഷമിക്കേണ്ട!</strong> നിങ്ങൾ സത്യസന്ധനായ ഒരു പാവം ചെക്കനാണെങ്കിൽ, ധനഞ്ജയ് ചാത്തന്നൂർ ബേക്കറിയിൽ നിന്ന് ഒരു ₹20-ന്റെ അടിപൊളി പ്ലം കേക്കും നല്ല ചൂട് കട്ടൻ ചായയും നേരിട്ട് വാങ്ങിത്തരും!</p>
+              </div>
+
+              <a href="https://www.instagram.com/dhananjay_403/" target="_blank" rel="noopener noreferrer" class="btn-cake-dm">
+                <span>🍰 Collect Plum Cake via Dhananjay's Instagram 💌</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- REVERSIBLE PRADHANA PURUSHAN KYC REJECTED CARD (Triggered if score < 55%) -->
+          <div class="plumcake-rejected-box hidden" id="plumcake-rejected-box">
+            <div class="approval-header-badge">
+              <span class="dbt-pill-rejected">❌ DBT STATUS: REJECTED</span>
+              <span class="dbt-amount-rejected">₹8,000.00</span>
+            </div>
+            <h4>അയ്യോ കഷ്ടം! യോഗ്യത നേടിയില്ല 😭</h4>
+            <p>നിങ്ങളുടെ സ്കോർ പദ്ധതി മാനദണ്ഡങ്ങളേക്കാൾ കുറവാണ്. അപകടകരമായ തോതിൽ ഇമോഷണൽ ഡ്രൈനസും റീൽസ് വിരുദ്ധതയും കണ്ടെത്തി!</p>
+            <p style="color: #FCA5A5; font-size: 0.85rem; margin-bottom: 0;">
+              കുറഞ്ഞത് 55% എങ്കിലും സ്കോർ ചെയ്യാതെ Dhananjay-യുടെ പ്ലം കേക്ക് കഷ്ണത്തിൽ പോലും തൊടാൻ അനുവാദമില്ല moné! 💀
+            </p>
+
+            <button class="btn-retake-kyc" onclick="resetQuiz()">
+              <span>🔄 Retake KYC Test (വീണ്ടും ശ്രമിക്കൂ)</span>
+            </button>
+          </div>
+
+          <div class="result-actions" id="quiz-result-actions">
+            <button class="btn-primary-gradient rainbow-shimmer-btn w-full btn-get-offer" onclick="openOfferLetterModal()">
+              <span>📜 Generate Official Boyfriend Offer Letter</span>
+            </button>
+            <a href="https://www.instagram.com/dhananjay_403/" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full" id="result-dm-btn">
+              <span>Send Score to @dhananjay_403 on Insta</span>
+              <i data-lucide="send"></i>
+            </a>
+            <button class="btn-text-muted w-full" onclick="resetQuiz()">Retake Quiz</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OFFICIAL BOYFRIEND OFFER LETTER MODAL -->
+  <div class="modal-backdrop" id="offer-letter-modal" onclick="closeOfferLetterModal(event)">
+    <div class="modal-card offer-letter-modal-card" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeOfferLetterModal()" aria-label="Close Contract">✕</button>
+
+      <!-- Modal Toolbar / Name Customizer -->
+      <div class="offer-controls-bar">
+        <label for="offer-candidate-input" class="offer-input-label">
+          <span>✍️ Enter Candidate Name or Instagram Handle:</span>
+        </label>
+        <div class="offer-input-row">
+          <input 
+            type="text" 
+            id="offer-candidate-input" 
+            class="offer-name-field" 
+            placeholder="e.g. Rahul / @rahul_cse" 
+            maxlength="28" 
+            oninput="updateOfferLetterName(this.value)"
+          >
+          <span class="offer-badge-tag">OFFICIAL CONTRACT</span>
+        </div>
+      </div>
+
+      <!-- THE PRINTABLE / DOWNLOADABLE CONTRACT DOCUMENT -->
+      <div class="offer-document" id="offer-document-element">
+        <div class="offer-doc-foil-bar"></div>
+        
+        <!-- Header -->
+        <div class="offer-doc-header">
+          <div class="offer-brand">
+            <span class="offer-corp-title">DHANANJAY ROMANCE VENTURES LLC</span>
+            <span class="offer-corp-sub">Department of Homie Logistics &amp; Strategic Acquisitions</span>
+            <span class="offer-corp-hub">Kollam Regional Hub • CSE '28 Operational Unit</span>
+          </div>
+          <div class="offer-meta-right">
+            <div class="offer-ref-tag" id="offer-ref-tag">REF: DHANANJAY-HR-2026-X</div>
+            <div class="offer-date-tag" id="offer-doc-date">DATE: OCTOBER 2026</div>
+            <div class="offer-status-stamp">STATUS: BINDING ROMANCE IPO</div>
+          </div>
+        </div>
+
+        <div class="offer-divider-line"></div>
+
+        <!-- Title -->
+        <h3 class="offer-title">FORMAL LETTER OF ROMANTIC APPOINTMENT</h3>
+        <p class="offer-subject"><strong>SUBJECT:</strong> Formal Offer for the Position of <u>Senior Executive Boyfriend</u> (Chathannoor &amp; Kollam Division)</p>
+
+        <!-- Salutation -->
+        <p class="offer-salutation">
+          Dear <strong id="offer-candidate-display" class="candidate-name-highlight">Prospective Suitor</strong>,
+        </p>
+
+        <p class="offer-intro-text">
+          Following algorithmic due diligence, verified emotional profiling, and unanimous approval by the Homie Council, 
+          <strong>Dhananjay Ventures LLC</strong> is pleased to formally extend this executive appointment. You have 
+          demonstrated exceptional patience, high emotional intelligence, and zero situationship contamination.
+        </p>
+
+        <!-- Contract Clauses -->
+        <div class="offer-clauses-box">
+          <div class="offer-clause-item">
+            <strong>1. Designation &amp; Reporting:</strong>
+            <span>Senior Executive Boyfriend (Chathannoor &amp; Kollam Regional Division). Reporting directly to Dhananjay with technical oversight by the Homie Matchmaking Council.</span>
+          </div>
+
+          <div class="offer-clause-item">
+            <strong>2. CTC (Compensation to Candidate):</strong>
+            <span>100% unconditional loyalty, unlimited 3 AM philosophy calls on his boiling Samsung, priority KSRTC fast-passenger window seat sharing, and fresh Pazhampori rations.</span>
+          </div>
+
+          <div class="offer-clause-item">
+            <strong>3. Daily Bandwidth &amp; Reel SLA:</strong>
+            <span>Candidate is entitled to 47–60 unhinged Instagram reels daily across all genres. Candidate agrees to maintain a minimum 80% heart-react SLA within 3 hours of transmission.</span>
+          </div>
+
+          <div class="offer-clause-item">
+            <strong>4. Anime &amp; Emotional Sensitivity Protocol:</strong>
+            <span>In the event of tearful distress caused by fictional 2D characters, candidate shall supply warm blankets and snacks without ever uttering the phrase <em>"Bro it's just a cartoon"</em>.</span>
+          </div>
+
+          <div class="offer-clause-item">
+            <strong>5. Liquidated Damages &amp; Non-Compete:</strong>
+            <span>Any sudden deployment of <em>"let's see where it goes"</em> or intentional ghosting constitutes an incurable breach of contract, punishable by civil litigation in the Kollam District Court and emergency DDoS of Spotify Wrapped.</span>
+          </div>
+        </div>
+
+        <!-- Statutory Notice -->
+        <div class="offer-statutory-notice">
+          <small>
+            *Statutory Notice: ഈ സൈറ്റിലുള്ള കഥാപാത്രങ്ങളും പരാമർശങ്ങളും തികച്ചും സാങ്കൽപ്പികം മാത്രമാണ്. ജീവിച്ചിരിക്കുന്നവരോ മരിച്ചവരോ ആയി എന്തെങ്കിലും സാമ്യം തോന്നുന്നുണ്ടെങ്കിൽ അത് തികച്ചും യാദൃച്ഛികം മാത്രം.
+          </small>
+        </div>
+
+        <!-- Signature Block -->
+        <div class="offer-signatures-grid">
+          <div class="sig-block sig-employer">
+            <p class="handwriting-sig sig-lead">Homie Council</p>
+            <div class="sig-line"></div>
+            <strong>Homie Defense Council</strong>
+            <small>Executive Matchmaking Directorate<br>Homie Emotional Defense Board</small>
+          </div>
+
+          <div class="sig-seal-wrap">
+            <div class="contract-gold-seal">
+              <span>★ OFFICIAL ★</span>
+              <strong>APPROVED</strong>
+              <span>HOMIE HQ</span>
+            </div>
+          </div>
+
+          <div class="sig-block sig-employee">
+            <p class="handwriting-sig sig-candidate" id="offer-candidate-sig">Prospective Suitor</p>
+            <div class="sig-line"></div>
+            <strong id="offer-candidate-sub">Prospective Suitor</strong>
+            <small>Accepted &amp; Countersigned<br>via Digital Mutual Consent</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="offer-actions-group">
+        <button class="btn-primary-gradient rainbow-shimmer-btn" onclick="downloadOfferLetterPNG()">
+          <i data-lucide="download"></i>
+          <span>Save Contract Image (.PNG) 📸</span>
+        </button>
+        <button class="btn-secondary" onclick="copyOfferLetterText()">
+          <i data-lucide="copy"></i>
+          <span id="copy-contract-btn-text">Copy Contract Text 📋</span>
+        </button>
+        <a href="https://www.instagram.com/dhananjay_403/" target="_blank" rel="noopener noreferrer" class="btn-cta-instagram">
+          <i data-lucide="send"></i>
+          <span>DM to @dhananjay_403</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING 3 AM DHANANJAY AI CHAT PILL & DRAWER -->
+  <div class="chat-widget-wrapper" id="chat-widget-wrapper">
+    <!-- Floating Trigger Pill -->
+    <button class="chat-floating-pill rainbow-card-glow" id="chat-floating-pill" onclick="toggleDhananjayChat()" aria-label="Open 3 AM Chat with Dhananjay">
+      <span class="chat-pill-avatar">
+        <img src="assets/images/hero.jpg" alt="Dhananjay" class="chat-avatar-img">
+        <span class="chat-online-dot"></span>
+      </span>
+      <span class="chat-pill-text" id="chat-pill-text">Live AI Chat 💬</span>
+      <span class="chat-pill-badge" id="chat-unread-badge">1</span>
+    </button>
+
+    <!-- Floating Chat Window / Drawer -->
+    <div class="chat-drawer" id="chat-drawer" aria-hidden="true">
+      <div class="chat-drawer-header">
+        <div class="chat-header-user">
+          <div class="chat-header-avatar-wrap">
+            <img src="assets/images/hero.jpg" alt="Dhananjay" class="chat-header-avatar">
+            <span class="chat-header-status-dot"></span>
+          </div>
+          <div class="chat-header-info">
+            <div class="chat-header-name">
+              <strong>dhananjay_403</strong>
+              <span class="chat-ai-tag">AI LIVE</span>
+            </div>
+            <div class="chat-header-sub">Chathannoor Hub • Samsung Temp: 58°C 🔥</div>
+          </div>
+        </div>
+        <div class="chat-header-actions">
+          <button class="chat-btn-icon" onclick="clearDhananjayChat()" title="Reset Conversation" aria-label="Clear Chat">
+            <i data-lucide="rotate-ccw"></i>
+          </button>
+          <button class="chat-btn-icon chat-close-btn" onclick="toggleDhananjayChat()" title="Minimize" aria-label="Close Chat">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Chat Messages Container -->
+      <div class="chat-messages-container" id="chat-messages-container">
+        <!-- Initial Message -->
+        <div class="chat-msg chat-msg-bot">
+          <div class="chat-bubble">
+            <p id="chat-initial-greeting">Hey there 👋 Phone is running a bit warm, but here I am. What's on your mind? 🥺</p>
+            <span class="chat-msg-time" id="chat-initial-time">Live</span>
+          </div>
+        </div>
+
+        <!-- Suggested Prompt Chips -->
+        <div class="chat-quick-chips" id="chat-quick-chips">
+          <button class="quick-chip plumcake-chip" id="chip-plumcake" style="display: none;" onclick="quickSendChat('Where is my ₹8,000 plum cake money? 🍰')">₹8,000 Plum Cake? 🍰</button>
+          <button class="quick-chip" onclick="quickSendChat('Why aren\'t you sleeping yet? 😴')">Why aren't you sleeping? 😴</button>
+          <button class="quick-chip" onclick="quickSendChat('How was the KSRTC commute today? 🚌')">How's the KSRTC commute? 🚌</button>
+          <button class="quick-chip" onclick="quickSendChat('Did you finish your lab code? 💻')">Did you finish lab code? 💻</button>
+          <button class="quick-chip" onclick="quickSendChat('Tell me your worst dad joke 💀')">Drop a dad joke 💀</button>
+        </div>
+
+        <!-- Dynamic Typing Indicator -->
+        <div class="chat-typing-indicator hidden" id="chat-typing-indicator">
+          <div class="typing-bubble">
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+            <span class="typing-dot"></span>
+          </div>
+          <span class="typing-text">Dhananjay is typing...</span>
+        </div>
+      </div>
+
+      <!-- Chat Input Footer -->
+      <form class="chat-input-form" id="chat-input-form" onsubmit="handleChatSubmit(event)">
+        <input 
+          type="text" 
+          id="chat-user-input" 
+          class="chat-input-field" 
+          placeholder="Ask Dhananjay anything..." 
+          autocomplete="off" 
+          maxlength="200"
+        >
+        <button type="submit" class="chat-send-btn" id="chat-send-btn" aria-label="Send Message">
+          <i data-lucide="send"></i>
+        </button>
+      </form>
+
+      <div class="chat-drawer-footer">
+        <span>⚡ Powered by 100% Chathannoor Intelligence</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- REALISTIC STANDALONE POPUP AD (Triggers 1.5s after load in ?scheme=plumcake mode) -->
+  <div id="scheme-full-ad-modal" class="scheme-ad-backdrop hidden" onclick="handleAdBackdropClick(event)">
+    <div class="scheme-ad-window" onclick="event.stopPropagation()">
+      <!-- Realistic Ad Header Bar -->
+      <div class="scheme-ad-topbar">
+        <div class="scheme-ad-branding">
+          <span class="adchoices-icon">▷</span>
+          <span class="adchoices-text">AdChoices • Sponsored Announcement</span>
+        </div>
+        <button class="scheme-ad-close-btn" onclick="closeSchemePopupAd()" aria-label="Close Ad" title="Close Advertisement">
+          <span class="ad-close-x">✕</span>
+        </button>
+      </div>
+
+      <!-- Attention Flash Headline -->
+      <div class="scheme-ad-alert-ribbon">
+        <span class="ad-pulse-dot"></span>
+        <span>📢 SPECIAL SPONSORSHIP NOTICE: ₹8,000 CHRISTMAS PLUM CAKE GRANT 2026</span>
+      </div>
+
+      <!-- Main Ad Content with FULL PICS (NO CROPPING) -->
+      <div class="scheme-ad-body">
+        <div class="scheme-ad-intro">
+          <h3>Meet the Official Co-Sponsors of Dhananjay's ₹8,000 Scheme</h3>
+          <p>Verified Beneficiaries &amp; Logistics Partners from Chathannoor Syndicate</p>
+        </div>
+
+        <div class="scheme-ad-posters-row">
+          <!-- Darsh Bananas Poster -->
+          <div class="scheme-poster-card">
+            <div class="scheme-poster-frame">
+              <img src="assets/images/bananas.jpg" alt="Darsh Plum Bananas" class="scheme-poster-img">
+            </div>
+            <div class="scheme-poster-caption">
+              <h4>🍌 Darsh</h4>
+              <span class="poster-role">Chief Banana Logistics Officer</span>
+              <p class="poster-quote">"100% fresh bananas. Finish Dhananjay's quiz to unlock your ₹8,000 cash grant!"</p>
+              <span class="poster-verified-tag">✅ Verified Beneficiary</span>
+            </div>
+          </div>
+
+          <!-- Amirthraj Nuts Poster -->
+          <div class="scheme-poster-card">
+            <div class="scheme-poster-frame">
+              <img src="assets/images/nuts.jpg" alt="AmirthRaj Nuts" class="scheme-poster-img">
+            </div>
+            <div class="scheme-poster-caption">
+              <h4>🥜 Amirthraj</h4>
+              <span class="poster-role">Chairman, Cashew &amp; Dry Fruits Syndicate</span>
+              <p class="poster-quote">"Cashew fund approved! Strictly for genuine boys. Take the test now!"</p>
+              <span class="poster-verified-tag">✅ Verified Beneficiary</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Big Real-Ad CTA Button -->
+        <div class="scheme-ad-actions">
+          <button class="btn-ad-claim-now" onclick="claimFromAd()">
+            <span class="btn-ad-icon">👉</span>
+            <span class="btn-ad-text">CLAIM ₹8,000 NOW (VERIFY KYC) 💸</span>
+          </button>
+          <button class="btn-ad-dismiss-link" onclick="closeSchemePopupAd()">
+            Skip Ad &amp; Continue to Dhananjay's Website ✕
+          </button>
+        </div>
+
+        <!-- Micro Ad Disclaimer Footer -->
+        <div class="scheme-ad-disclaimer">
+          <span>Ad ID: CHN-2026-8000 • Verified Advertiser: Chathannoor Dry Fruits &amp; Banana Syndicate Ltd. • Privacy Policy • Report Ad</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
